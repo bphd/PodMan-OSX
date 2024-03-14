@@ -1,11 +1,11 @@
 #!/bin/bash
-# Author:       Sick.Codes https://twitter.com/sickcodes
-# Contact:      https://github.com/sickcodes, https://sick.codes
-# Copyright:    sickcodes (C) 2021
+# Author:       bphd https://twitter.com/bphd
+# Contact:      https://github.com/bphd, https://bphd
+# Copyright:    bphd (C) 2021
 # License:      GPLv3+
-# Title:        Docker-OSX (Mac on Docker)
-# Repository:   https://github.com/sickcodes/Docker-OSX
-# Website:      https://sick.codes
+# Title:        PodMan-OSX (Mac on PodMan)
+# Repository:   https://github.com/bphd/PodMan-OSX
+# Website:      https://bphd
 #
 # Status:       Used internally to run each image and take screenshots until they match the pngs in this folder.
 # 
@@ -32,18 +32,18 @@ TESTS=(
     ventura
 )
 
-# test each docker image to see if they boot to their unique respective installation screens.
+# test each PodMan image to see if they boot to their unique respective installation screens.
 
 for TEST in "${TESTS[@]}"; do
     # run the image detached
-    docker run --rm -d \
+    PodMan run --rm -d \
         --device /dev/kvm \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -e "DISPLAY=:99" \
-        "sickcodes/docker-osx:${TEST}"
+        "bphd/PodMan-osx:${TEST}"
 
     # imcat the expected test screenshot to ./"${TEST}_master.txt" 
-    imcat ~/Docker-OSX/tests/${TEST}_master.png > ./"${TEST}_master.txt"
+    imcat ~/PodMan-OSX/tests/${TEST}_master.png > ./"${TEST}_master.txt"
 
     # run until the screen matches the expected screen
     while :; do
@@ -56,12 +56,12 @@ for TEST in "${TESTS[@]}"; do
     done
 
     # kill any containers
-    docker kill "$(docker ps --format "{{.ID}}")"
+    PodMan kill "$(PodMan ps --format "{{.ID}}")"
     
     # ensure all containers are dead
-    until [[ "$(docker ps | wc -l)" = 1 ]]; do
+    until [[ "$(PodMan ps | wc -l)" = 1 ]]; do
         sleep 1
-        docker ps | xargs docker kill
+        PodMan ps | xargs PodMan kill
     done
 
 done

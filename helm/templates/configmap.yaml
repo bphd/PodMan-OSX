@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "docker-osx.fullname" . }}-boot-components
+  name: {{ template "PodMan-osx.fullname" . }}-boot-components
 data:
   config.plist: |-
     <?xml version="1.0" encoding="UTF-8"?>

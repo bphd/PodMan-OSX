@@ -4,7 +4,7 @@
 replicaCount: 1
 
 image:
-  repository: sickcodes/docker-osx-vnc
+  repository: bphd/PodMan-osx-vnc
   tag: latest
   pullPolicy: IfNotPresent
   userName: ubuntu
@@ -144,7 +144,7 @@ ingress:
   paths:
   - /
   hosts:
-  - docker-osx.local
+  - PodMan-osx.local
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -186,7 +186,7 @@ persistence:
     ##
     ## If you want to reuse an existing claim, you can pass the name of the PVC using
     ## the existingClaim variable
-    existingClaim: docker-osx
+    existingClaim: PodMan-osx
     accessMode: ReadWriteOnce
     size: 5Gi
 
@@ -194,7 +194,7 @@ persistence:
 extraVolumes:
   - name: data
     hostPath:
-      path: /mnt/data/default/docker_osx/
+      path: /mnt/data/default/PodMan_osx/
       type: DirectoryOrCreate
 
 # Any extra volume mounts to define for the containers

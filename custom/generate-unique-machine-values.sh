@@ -4,9 +4,9 @@
 # | (_) \__ \>  <  \__ \/ -_) '_| / _` | | | (_ / -_) ' \/ -_) '_/ _` |  _/ _ \ '_|
 #  \___/|___/_/\_\ |___/\___|_| |_\__,_|_|  \___\___|_||_\___|_| \__,_|\__\___/_|  
 #
-# Repo:             https://github.com/sickcodes/osx-serial-generator/
+# Repo:             https://github.com/bphd/osx-serial-generator/
 # Title:            OSX Serial Generator
-# Author:           Sick.Codes https://sick.codes/
+# Author:           bphd https://bphd/
 # Version:          3.1
 # License:          GPLv3+
 
@@ -52,13 +52,13 @@ Defaults:
     - if you set --custom-plist, --plists is assumed
     - if you set --output-env, --envs is assumed
 
-Author:  Sick.Codes https://sick.codes/
-Project: https://github.com/sickcodes/osx-serial-generator/
+Author:  bphd https://bphd/
+Project: https://github.com/bphd/osx-serial-generator/
 License: GPLv3+
 "
 
-OPENCORE_IMAGE_MAKER_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/opencore-image-ng.sh'
-MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-nopicker-custom.plist'
+OPENCORE_IMAGE_MAKER_URL='https://raw.githubusercontent.com/bphd/osx-serial-generator/master/opencore-image-ng.sh'
+MASTER_PLIST_URL='https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-nopicker-custom.plist'
 
 # gather arguments
 while (( "$#" )); do
@@ -330,7 +330,7 @@ EOF
                 elif [ "${MASTER_PLIST_URL}" ]; then
                     wget -O "${MASTER_PLIST:=./config-custom.plist}" "${MASTER_PLIST_URL}"
                 else
-                    # default is config-nopicker-custom.plist from OSX-KVM with placeholders used in Docker-OSX
+                    # default is config-nopicker-custom.plist from OSX-KVM with placeholders used in PodMan-OSX
                     wget -O "${MASTER_PLIST:=./config-nopicker-custom.plist}" "${MASTER_PLIST_URL}"
                 fi
 

@@ -1,130 +1,130 @@
-# Docker-OSX · [Follow @sickcodes on Twitter](https://twitter.com/sickcodes)
+# PodMan-OSX · [Follow @bphd on Twitter](https://twitter.com/bphd)
 
-![Running Mac OS X in a Docker container](/running-mac-inside-docker-qemu.png?raw=true "OSX KVM DOCKER")
+![Running Mac OS X in a PodMan container](/running-mac-inside-PodMan-qemu.png?raw=true "OSX KVM PodMan")
 
-Run Mac OS X in Docker with near-native performance! X11 Forwarding! iMessage security research! iPhone USB working! macOS in a Docker container!
+Run Mac OS X in PodMan with near-native performance! X11 Forwarding! iMessage security research! iPhone USB working! macOS in a PodMan container!
 
 Conduct Security Research on macOS using both Linux & Windows!
 
-# Docker-OSX now has a Discord server & Telegram!
+# PodMan-OSX now has a Discord server & Telegram!
 
-The Discord is active on #docker-osx and anyone is welcome to come and ask questions, ideas, etc.
+The Discord is active on #PodMan-osx and anyone is welcome to come and ask questions, ideas, etc.
 
 <p align="center">
-    <a href="https://hub.docker.com/r/sickcodes/docker-osx"><img src="https://dockeri.co/image/sickcodes/docker-osx"/></a><a href="https://discord.gg/sickchat"><a href="https://discord.gg/sickchat" target="_blank"><img src="https://raw.githubusercontent.com/sickcodes/Docker-OSX/master/discord-logo.svg"></a></a>
+    <a href="https://hub.PodMan.com/r/bphd/PodMan-osx"><img src="https://PodMani.co/image/bphd/PodMan-osx"/></a><a href="https://discord.gg/bphd"><a href="https://discord.gg/bphd" target="_blank"><img src="https://raw.githubusercontent.com/bphd/PodMan-OSX/master/discord-logo.svg"></a></a>
 </p>
 
 
-### Click to join the Discord server [https://discord.gg/sickchat](https://discord.gg/sickchat)
+### Click to join the Discord server [https://discord.gg/bphd](https://discord.gg/bphd)
 
-### Click to join the Telegram server [https://t.me/sickcodeschat](https://t.me/sickcodeschat)
+### Click to join the Telegram server [https://t.me/bphdchat](https://t.me/bphdchat)
 
-Or reach out via Linkedin if it's private: [https://www.linkedin.com/in/sickcodes](https://www.linkedin.com/in/sickcodes)
+Or reach out via Linkedin if it's private: [https://www.linkedin.com/in/bphd](https://www.linkedin.com/in/bphd)
 
-Or via [https://sick.codes/contact/](https://sick.codes/contact/)
+Or via [https://bphd/contact/](https://bphd/contact/)
 
 ## Author
 
-This project is maintained by [Sick.Codes](https://sick.codes/). [(Twitter)](https://twitter.com/sickcodes)
+This project is maintained by [bphd](https://bphd/). [(Twitter)](https://twitter.com/bphd)
 
-Additional credits can be found here: https://github.com/sickcodes/Docker-OSX/blob/master/CREDITS.md
+Additional credits can be found here: https://github.com/bphd/PodMan-OSX/blob/master/CREDITS.md
 
-Additionally, comprehensive list of all contributors can be found here: https://github.com/sickcodes/Docker-OSX/graphs/contributors
+Additionally, comprehensive list of all contributors can be found here: https://github.com/bphd/PodMan-OSX/graphs/contributors
 
-Big thanks to [@kholia](https://twitter.com/kholia) for maintaining the upstream project, which Docker-OSX is built on top of: [OSX-KVM](https://github.com/kholia/OSX-KVM).
+Big thanks to [@kholia](https://twitter.com/kholia) for maintaining the upstream project, which PodMan-OSX is built on top of: [OSX-KVM](https://github.com/kholia/OSX-KVM).
 
 Also special thanks to [@thenickdude](https://github.com/thenickdude) who maintains the valuable fork [KVM-OpenCore](https://github.com/thenickdude/KVM-Opencore), which was started by [@Leoyzen](https://github.com/Leoyzen/)!
 
-Extra special thanks to the OpenCore team over at: https://github.com/acidanthera/OpenCorePkg. Their well-maintained bootloader provides much of the great functionality that Docker-OSX users enjoy :)
+Extra special thanks to the OpenCore team over at: https://github.com/acidanthera/OpenCorePkg. Their well-maintained bootloader provides much of the great functionality that PodMan-OSX users enjoy :)
 
 If you like this project, consider contributing here or upstream!
 
-## Quick Start Docker-OSX
+## Quick Start PodMan-OSX
 
 Video setup tutorial is also available here: https://www.youtube.com/watch?v=wLezYl77Ll8
 
-**Windows users:** [click here to see the notes below](#id-like-to-run-docker-osx-on-windows)!
+**Windows users:** [click here to see the notes below](#id-like-to-run-PodMan-osx-on-windows)!
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=wLezYl77Ll8" target="_blank"><img src="https://raw.githubusercontent.com/sickcodes/Docker-OSX/master/Youtube-Screenshot-Docker-OSX-Setup.png"></a>
+  <a href="https://www.youtube.com/watch?v=wLezYl77Ll8" target="_blank"><img src="https://raw.githubusercontent.com/bphd/PodMan-OSX/master/Youtube-Screenshot-PodMan-OSX-Setup.png"></a>
 </p>
 
 First time here? try [initial setup](#initial-setup), otherwise try the instructions below to use either Catalina or Big Sur.
 
 ## Any questions, ideas, or just want to hang out?
-# [https://discord.gg/sickchat](https://discord.gg/sickchat)
+# [https://discord.gg/bphd](https://discord.gg/bphd)
 
-### Catalina [![https://img.shields.io/docker/image-size/sickcodes/docker-osx/latest?label=sickcodes%2Fdocker-osx%3Alatest](https://img.shields.io/docker/image-size/sickcodes/docker-osx/latest?label=sickcodes%2Fdocker-osx%3Alatest)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+### Catalina [![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/latest?label=bphd%2FPodMan-osx%3Alatest](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/latest?label=bphd%2FPodMan-osx%3Alatest)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 ```bash
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
-    sickcodes/docker-osx:latest
+    bphd/PodMan-osx:latest
 
-# docker build -t docker-osx .
+# PodMan build -t PodMan-osx .
 ```
-### Big Sur [![https://img.shields.io/docker/image-size/sickcodes/docker-osx/big-sur?label=sickcodes%2Fdocker-osx%3Abig-sur](https://img.shields.io/docker/image-size/sickcodes/docker-osx/big-sur?label=sickcodes%2Fdocker-osx%3Abig-sur)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+### Big Sur [![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/big-sur?label=bphd%2FPodMan-osx%3Abig-sur](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/big-sur?label=bphd%2FPodMan-osx%3Abig-sur)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 ```bash
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
-    sickcodes/docker-osx:big-sur
+    bphd/PodMan-osx:big-sur
 
-# docker build -t docker-osx --build-arg SHORTNAME=big-sur .
+# PodMan build -t PodMan-osx --build-arg SHORTNAME=big-sur .
 ```
 
-### Monterey [![https://img.shields.io/docker/image-size/sickcodes/docker-osx/monterey?label=sickcodes%2Fdocker-osx%3Amonterey](https://img.shields.io/docker/image-size/sickcodes/docker-osx/monterey?label=sickcodes%2Fdocker-osx%3Amonterey)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+### Monterey [![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/monterey?label=bphd%2FPodMan-osx%3Amonterey](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/monterey?label=bphd%2FPodMan-osx%3Amonterey)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 ```bash
 
-docker run -it \
-    --device /dev/kvm \
-    -p 50922:10022 \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -e "DISPLAY=${DISPLAY:-:0.0}" \
-    -e GENERATE_UNIQUE=true \
-    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
-    sickcodes/docker-osx:monterey
-
-# docker build -t docker-osx --build-arg SHORTNAME=monterey .
-```
-
-### Ventura [![https://img.shields.io/docker/image-size/sickcodes/docker-osx/ventura?label=sickcodes%2Fdocker-osx%3Aventura](https://img.shields.io/docker/image-size/sickcodes/docker-osx/ventura?label=sickcodes%2Fdocker-osx%3Aventura)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
-
-```bash
-
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e GENERATE_UNIQUE=true \
-    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
-    sickcodes/docker-osx:ventura
+    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist' \
+    bphd/PodMan-osx:monterey
 
-# docker build -t docker-osx --build-arg SHORTNAME=ventura .
+# PodMan build -t PodMan-osx --build-arg SHORTNAME=monterey .
 ```
 
-#### Run Catalina Pre-Installed [![https://img.shields.io/docker/image-size/sickcodes/docker-osx/auto?label=sickcodes%2Fdocker-osx%3Aauto](https://img.shields.io/docker/image-size/sickcodes/docker-osx/auto?label=sickcodes%2Fdocker-osx%3Aauto)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+### Ventura [![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/ventura?label=bphd%2FPodMan-osx%3Aventura](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/ventura?label=bphd%2FPodMan-osx%3Aventura)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
+
+```bash
+
+PodMan run -it \
+    --device /dev/kvm \
+    -p 50922:10022 \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e "DISPLAY=${DISPLAY:-:0.0}" \
+    -e GENERATE_UNIQUE=true \
+    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist' \
+    bphd/PodMan-osx:ventura
+
+# PodMan build -t PodMan-osx --build-arg SHORTNAME=ventura .
+```
+
+#### Run Catalina Pre-Installed [![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/auto?label=bphd%2FPodMan-osx%3Aauto](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/auto?label=bphd%2FPodMan-osx%3Aauto)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 ```bash
 # 40GB disk space required: 20GB original image 20GB your container.
-docker pull sickcodes/docker-osx:auto
+PodMan pull bphd/PodMan-osx:auto
 
 # boot directly into a real OS X shell with a visual display [NOT HEADLESS]
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e GENERATE_UNIQUE=true \
-    sickcodes/docker-osx:auto
+    bphd/PodMan-osx:auto
 
 # username is user
 # passsword is alpine
@@ -132,61 +132,61 @@ docker run -it \
 
 ### Older Systems
 
-### High Sierra [![https://img.shields.io/docker/image-size/sickcodes/docker-osx/high-sierra?label=sickcodes%2Fdocker-osx%3Ahigh-sierra](https://img.shields.io/docker/image-size/sickcodes/docker-osx/high-sierra?label=sickcodes%2Fdocker-osx%3Ahigh-sierra)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+### High Sierra [![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/high-sierra?label=bphd%2FPodMan-osx%3Ahigh-sierra](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/high-sierra?label=bphd%2FPodMan-osx%3Ahigh-sierra)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 ```bash
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
-    sickcodes/docker-osx:high-sierra
+    bphd/PodMan-osx:high-sierra
 
-# docker build -t docker-osx --build-arg SHORTNAME=high-sierra .
+# PodMan build -t PodMan-osx --build-arg SHORTNAME=high-sierra .
 ```
 
-### Mojave [![https://img.shields.io/docker/image-size/sickcodes/docker-osx/mojave?label=sickcodes%2Fdocker-osx%3Amojave](https://img.shields.io/docker/image-size/sickcodes/docker-osx/mojave?label=sickcodes%2Fdocker-osx%3Amojave)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+### Mojave [![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/mojave?label=bphd%2FPodMan-osx%3Amojave](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/mojave?label=bphd%2FPodMan-osx%3Amojave)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 ```bash
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
-    sickcodes/docker-osx:mojave
+    bphd/PodMan-osx:mojave
 
-# docker build -t docker-osx --build-arg SHORTNAME=mojave .
+# PodMan build -t PodMan-osx --build-arg SHORTNAME=mojave .
 ```
 
 
 
-#### Download the image manually and use it in Docker 
+#### Download the image manually and use it in PodMan 
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked?label=sickcodes%2Fdocker-osx%3Anaked](https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked?label=sickcodes%2Fdocker-osx%3Anaked)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked?label=bphd%2FPodMan-osx%3Anaked](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked?label=bphd%2FPodMan-osx%3Anaked)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 
-This is a particularly good way for downloading the container, in case Docker's CDN (or your connection) happens to be slow.
+This is a particularly good way for downloading the container, in case PodMan's CDN (or your connection) happens to be slow.
 
 ```bash
-wget https://images2.sick.codes/mac_hdd_ng_auto.img
+wget https://images2.bphd/mac_hdd_ng_auto.img
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v "${PWD}/mac_hdd_ng_auto.img:/image" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e GENERATE_UNIQUE=true \
-    -e MASTER_PLIST_URL=https://raw.githubusercontent.com/sickcodes/Docker-OSX/master/custom/config-nopicker-custom.plist \
-    sickcodes/docker-osx:naked
+    -e MASTER_PLIST_URL=https://raw.githubusercontent.com/bphd/PodMan-OSX/master/custom/config-nopicker-custom.plist \
+    bphd/PodMan-osx:naked
 ```
 
 
 #### Use your own image and manually and automatically log into a shell
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked-auto?label=sickcodes%2Fdocker-osx%3Anaked-auto](https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked-auto?label=sickcodes%2Fdocker-osx%3Anaked-auto)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked-auto?label=bphd%2FPodMan-osx%3Anaked-auto](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked-auto?label=bphd%2FPodMan-osx%3Anaked-auto)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 
 Enable SSH in network sharing inside the guest first. Change `-e "USERNAME=user"` and `-e "PASSWORD=password"` to your credentials. The container will add itself to `~/.ssh/authorized_keys`
@@ -195,11 +195,11 @@ Since you can't see the screen, use the PLIST with nopicker, for example:
 
 ```bash
 # Catalina
-# wget https://images2.sick.codes/mac_hdd_ng_auto.img
+# wget https://images2.bphd/mac_hdd_ng_auto.img
 # Monterey
-wget https://images.sick.codes/mac_hdd_ng_auto_monterey.img
+wget https://images.bphd/mac_hdd_ng_auto_monterey.img
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v "${PWD}/mac_hdd_ng_auto_monterey.img:/image" \
@@ -208,8 +208,8 @@ docker run -it \
     -e "USERNAME=user" \
     -e "PASSWORD=alpine" \
     -e GENERATE_UNIQUE=true \
-    -e MASTER_PLIST_URL=https://raw.githubusercontent.com/sickcodes/Docker-OSX/master/custom/config-nopicker-custom.plist \
-    sickcodes/docker-osx:naked-auto
+    -e MASTER_PLIST_URL=https://raw.githubusercontent.com/bphd/PodMan-OSX/master/custom/config-nopicker-custom.plist \
+    bphd/PodMan-osx:naked-auto
 ```
 
 # Share directories, sharing files, shared folder, mount folder
@@ -227,14 +227,14 @@ sshfs user@localhost:/ -p 50922 ~/mnt/osx
 
 If you have a laptop see the next usbfluxd section.
 
-If you have a desktop PC, you can use [@Silfalion](https://github.com/Silfalion)'s instructions: [https://github.com/Silfalion/Iphone_docker_osx_passthrough](https://github.com/Silfalion/Iphone_docker_osx_passthrough)
+If you have a desktop PC, you can use [@Silfalion](https://github.com/Silfalion)'s instructions: [https://github.com/Silfalion/Iphone_PodMan_osx_passthrough](https://github.com/Silfalion/Iphone_PodMan_osx_passthrough)
 
-# (USBFLUXD) iPhone USB -> Network style passthrough OSX-KVM Docker-OSX
+# (USBFLUXD) iPhone USB -> Network style passthrough OSX-KVM PodMan-OSX
 
 Video setup tutorial for usbfluxd is also available here: https://www.youtube.com/watch?v=kTk5fGjK_PM
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=kTk5fGjK_PM" target="_blank"><img alt="iPhone USB passthrough on macOS virtual machine Linux & Windows" src="https://raw.githubusercontent.com/sickcodes/Docker-OSX/master/Youtube-USBFLUXD-Screenshot-Docker-OSX.png"></a>
+  <a href="https://www.youtube.com/watch?v=kTk5fGjK_PM" target="_blank"><img alt="iPhone USB passthrough on macOS virtual machine Linux & Windows" src="https://raw.githubusercontent.com/bphd/PodMan-OSX/master/Youtube-USBFLUXD-Screenshot-PodMan-OSX.png"></a>
 </p>
 
 
@@ -282,7 +282,7 @@ sudo usbfluxd -f -n
 
 Install homebrew.
 
-`172.17.0.1` is usually the Docker bridge IP, which is your PC, but you can use any IP from `ip addr`...
+`172.17.0.1` is usually the PodMan bridge IP, which is your PC, but you can use any IP from `ip addr`...
 
 macOS Terminal:
 ```zsh
@@ -317,55 +317,55 @@ sudo systemctl restart usbmuxd
 sudo killall socat
 ```
 
-## Make container FASTER using [https://github.com/sickcodes/osx-optimizer](https://github.com/sickcodes/osx-optimizer)
+## Make container FASTER using [https://github.com/bphd/osx-optimizer](https://github.com/bphd/osx-optimizer)
 
-SEE commands in [https://github.com/sickcodes/osx-optimizer](https://github.com/sickcodes/osx-optimizer)!
+SEE commands in [https://github.com/bphd/osx-optimizer](https://github.com/bphd/osx-optimizer)!
 
 - Skip the GUI login screen (at your own risk!)
 - Disable spotlight indexing on macOS to heavily speed up Virtual Instances.
 - Disable heavy login screen wallpaper
 - Disable updates (at your own risk!)
 
-## Increase disk space by moving /var/lib/docker to external drive, block storage, NFS, or any other location conceivable.
+## Increase disk space by moving /var/lib/PodMan to external drive, block storage, NFS, or any other location conceivable.
 
-Move /var/lib/docker, following the tutorial below
+Move /var/lib/PodMan, following the tutorial below
 
 - Cheap large physical disk storage instead using your server's disk, or SSD.
 - Block Storage, NFS, etc.
 
-Tutorial here: https://sick.codes/how-to-run-docker-from-block-storage/
+Tutorial here: https://bphd/how-to-run-PodMan-from-block-storage/
 
-Only follow the above tutorial if you are happy with wiping all your current Docker images/layers.
+Only follow the above tutorial if you are happy with wiping all your current PodMan images/layers.
 
-Safe mode: Disable docker temporarily so you can move the Docker folder temporarily.
+Safe mode: Disable PodMan temporarily so you can move the PodMan folder temporarily.
 
-- Do NOT do this until you have moved your image out already [https://github.com/dulatello08/Docker-OSX/#quick-start-your-own-image-naked-container-image](https://github.com/dulatello08/Docker-OSX/#quick-start-your-own-image-naked-container-image)
-
-```bash
-killall dockerd
-systemctl disable --now docker
-systemctl disable --now docker.socket
-systemctl stop docker
-systemctl stop docker.socket
-```
-Now, that Docker daemon is off, move /var/lib/docker somewhere
-
-Then, symbolicly link /var/lib/docker somewhere:
+- Do NOT do this until you have moved your image out already [https://github.com/dulatello08/PodMan-OSX/#quick-start-your-own-image-naked-container-image](https://github.com/dulatello08/PodMan-OSX/#quick-start-your-own-image-naked-container-image)
 
 ```bash
-mv /var/lib/docker /run/media/user/some_drive/docker
-ln -s /run/media/user/some_drive/docker /var/lib/docker
-
-# now check if /var/lib/docker is working still
-ls /var/lib/docker
+killall PodMand
+systemctl disable --now PodMan
+systemctl disable --now PodMan.socket
+systemctl stop PodMan
+systemctl stop PodMan.socket
 ```
-If you see folders, then it worked. You can restart Docker, or just reboot if you want to be sure.
+Now, that PodMan daemon is off, move /var/lib/PodMan somewhere
+
+Then, symbolicly link /var/lib/PodMan somewhere:
+
+```bash
+mv /var/lib/PodMan /run/media/user/some_drive/PodMan
+ln -s /run/media/user/some_drive/PodMan /var/lib/PodMan
+
+# now check if /var/lib/PodMan is working still
+ls /var/lib/PodMan
+```
+If you see folders, then it worked. You can restart PodMan, or just reboot if you want to be sure.
 
 ## Important notices:
 
 **2021-11-14** - Added High Sierra, Mojave
 
-Pick one of these while **building**, irrelevant when using docker pull:
+Pick one of these while **building**, irrelevant when using PodMan pull:
 ```
 --build-arg SHORTNAME=high-sierra 
 --build-arg SHORTNAME=mojave
@@ -392,35 +392,35 @@ There are currently multiple images, each with different use cases (explained [b
 
 High Sierra:
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/high-sierra?label=sickcodes%2Fdocker-osx%3Ahigh-sierra](https://img.shields.io/docker/image-size/sickcodes/docker-osx/high-sierra?label=sickcodes%2Fdocker-osx%3Ahigh-sierra)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/high-sierra?label=bphd%2FPodMan-osx%3Ahigh-sierra](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/high-sierra?label=bphd%2FPodMan-osx%3Ahigh-sierra)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 Mojave:
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/mojave?label=sickcodes%2Fdocker-osx%3Amojave](https://img.shields.io/docker/image-size/sickcodes/docker-osx/mojave?label=sickcodes%2Fdocker-osx%3Amojave)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/mojave?label=bphd%2FPodMan-osx%3Amojave](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/mojave?label=bphd%2FPodMan-osx%3Amojave)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 Catalina:
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/latest?label=sickcodes%2Fdocker-osx%3Alatest](https://img.shields.io/docker/image-size/sickcodes/docker-osx/latest?label=sickcodes%2Fdocker-osx%3Alatest)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/latest?label=bphd%2FPodMan-osx%3Alatest](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/latest?label=bphd%2FPodMan-osx%3Alatest)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 Big-Sur:
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/big-sur?label=sickcodes%2Fdocker-osx%3Abig-sur](https://img.shields.io/docker/image-size/sickcodes/docker-osx/big-sur?label=sickcodes%2Fdocker-osx%3Abig-sur)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/big-sur?label=bphd%2FPodMan-osx%3Abig-sur](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/big-sur?label=bphd%2FPodMan-osx%3Abig-sur)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 Monterey make your own image:
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/monterey?label=sickcodes%2Fdocker-osx%3Amonterey](https://img.shields.io/docker/image-size/sickcodes/docker-osx/monterey?label=sickcodes%2Fdocker-osx%3Amonterey)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/monterey?label=bphd%2FPodMan-osx%3Amonterey](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/monterey?label=bphd%2FPodMan-osx%3Amonterey)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
-Pre-made **Catalina** system by [Sick.Codes](https://sick.codes): username: `user`, password: `alpine`
+Pre-made **Catalina** system by [bphd](https://bphd): username: `user`, password: `alpine`
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/auto?label=sickcodes%2Fdocker-osx%3Aauto](https://img.shields.io/docker/image-size/sickcodes/docker-osx/auto?label=sickcodes%2Fdocker-osx%3Aauto)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/auto?label=bphd%2FPodMan-osx%3Aauto](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/auto?label=bphd%2FPodMan-osx%3Aauto)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 Naked: Bring-your-own-image setup (use any of the above first):
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked?label=sickcodes%2Fdocker-osx%3Anaked](https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked?label=sickcodes%2Fdocker-osx%3Anaked)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked?label=bphd%2FPodMan-osx%3Anaked](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked?label=bphd%2FPodMan-osx%3Anaked)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 Naked Auto: same as above but with `-e USERNAME` & `-e PASSWORD` and `-e OSX_COMMANDS="put your commands here"`
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked-auto?label=sickcodes%2Fdocker-osx%3Anaked-auto](https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked-auto?label=sickcodes%2Fdocker-osx%3Anaked-auto)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked-auto?label=bphd%2FPodMan-osx%3Anaked-auto](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked-auto?label=bphd%2FPodMan-osx%3Anaked-auto)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 ## Capabilities
 - use iPhone OSX KVM on Linux using [usbfluxd](https://github.com/corellium/usbfluxd)!
@@ -429,11 +429,11 @@ Naked Auto: same as above but with `-e USERNAME` & `-e PASSWORD` and `-e OSX_COM
 - USB passthrough (hotplug too)
 - SSH enabled (`localhost:50922`)
 - VNC enabled (`localhost:8888`) if using ./vnc version
-- iMessage security research via [serial number generator!](https://github.com/sickcodes/osx-serial-generator)
+- iMessage security research via [serial number generator!](https://github.com/bphd/osx-serial-generator)
 - X11 forwarding is enabled
 - runs on top of QEMU + KVM
 - supports Big Sur, custom images, Xvfb headless mode
-- you can clone your container with `docker commit`
+- you can clone your container with `PodMan commit`
 
 ### Requirements
 
@@ -448,35 +448,35 @@ Naked Auto: same as above but with `-e USERNAME` & `-e PASSWORD` and `-e OSX_COM
 - gpu acceleration
 - support for virt-manager
 
-## Docker
+## PodMan
 
-Images built on top of the contents of this repository are also available on **Docker Hub** for convenience: https://hub.docker.com/r/sickcodes/docker-osx
+Images built on top of the contents of this repository are also available on **PodMan Hub** for convenience: https://hub.PodMan.com/r/bphd/PodMan-osx
 
-A comprehensive list of the available Docker images and their intended purpose can be found in the [Instructions](#instructions).
+A comprehensive list of the available PodMan images and their intended purpose can be found in the [Instructions](#instructions).
 
 ## Kubernetes
 
-Docker-OSX supports Kubernetes.
+PodMan-OSX supports Kubernetes.
 
 Kubernetes Helm Chart & Documentation can be found under the [helm directory](helm/README.md).
 
 Thanks [cephasara](https://github.com/cephasara) for contributing this major contribution.
 
-[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/docker-osx)](https://artifacthub.io/packages/search?repo=docker-osx)
+[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/PodMan-osx)](https://artifacthub.io/packages/search?repo=PodMan-osx)
 
 ## Support
 
 ### Small questions & issues
 
-Feel free to open an [issue](https://github.com/sickcodes/Docker-OSX/issues/new/choose), should you come across minor issues with running Docker-OSX or have any questions.
+Feel free to open an [issue](https://github.com/bphd/PodMan-OSX/issues/new/choose), should you come across minor issues with running PodMan-OSX or have any questions.
 
 #### Resolved issues
 
-Before you open an issue, however, please check the [closed issues](https://github.com/sickcodes/Docker-OSX/issues?q=is%3Aissue+is%3Aclosed) and confirm that you're using the latest version of this repository — your issues may have already been resolved! You might also see your answer in our questions and answers section [below](#more-questions-and-answers).
+Before you open an issue, however, please check the [closed issues](https://github.com/bphd/PodMan-OSX/issues?q=is%3Aissue+is%3Aclosed) and confirm that you're using the latest version of this repository — your issues may have already been resolved! You might also see your answer in our questions and answers section [below](#more-questions-and-answers).
 
 ### Feature requests and updates
 
-Follow [@sickcodes](https://twitter.com/sickcodes)!
+Follow [@bphd](https://twitter.com/bphd)!
 
 ### Professional support
 
@@ -486,21 +486,21 @@ For more sophisticated endeavours, we offer the following support services:
 - Custom images, custom scripts, consulting (per hour available!)
 - One-on-one conversations with you or your development team.
 
-In case you're interested, contact [@sickcodes on Twitter](https://twitter.com/sickcodes) or click [here](https://sick.codes/contact).
+In case you're interested, contact [@bphd on Twitter](https://twitter.com/bphd) or click [here](https://bphd/contact).
 
 ## License/Contributing
 
-Docker-OSX is licensed under the [GPL v3+](LICENSE). Contributions are welcomed and immensely appreciated. You are in fact permitted to use Docker-OSX as a tool to create proprietary software.
+PodMan-OSX is licensed under the [GPL v3+](LICENSE). Contributions are welcomed and immensely appreciated. You are in fact permitted to use PodMan-OSX as a tool to create proprietary software.
 
-### Other cool Docker/QEMU based projects
-- [Run Android in a Docker Container with Dock Droid](https://github.com/sickcodes/dock-droid)
-- [Run Android fully native on the host!](https://github.com/sickcodes/droid-native)
-- [Run iOS 12 in a Docker container with Docker-eyeOS](https://github.com/sickcodes/Docker-eyeOS) - [https://github.com/sickcodes/Docker-eyeOS](https://github.com/sickcodes/Docker-eyeOS)
-- [Run iMessage relayer in Docker with Bluebubbles.app](https://bluebubbles.app/) - [Getting started wiki](https://github.com/BlueBubblesApp/BlueBubbles-Server/wiki/Running-via-Docker)
+### Other cool PodMan/QEMU based projects
+- [Run Android in a PodMan Container with Dock Droid](https://github.com/bphd/dock-droid)
+- [Run Android fully native on the host!](https://github.com/bphd/droid-native)
+- [Run iOS 12 in a PodMan container with PodMan-eyeOS](https://github.com/bphd/PodMan-eyeOS) - [https://github.com/bphd/PodMan-eyeOS](https://github.com/bphd/PodMan-eyeOS)
+- [Run iMessage relayer in PodMan with Bluebubbles.app](https://bluebubbles.app/) - [Getting started wiki](https://github.com/BlueBubblesApp/BlueBubbles-Server/wiki/Running-via-PodMan)
 
 ## Disclaimer
 
-If you are serious about Apple Security, and possibly finding 6-figure bug bounties within the Apple Bug Bounty Program, then you're in the right place! Further notes: [Is Hackintosh, OSX-KVM, or Docker-OSX legal?](https://sick.codes/is-hackintosh-osx-kvm-or-docker-osx-legal/)
+If you are serious about Apple Security, and possibly finding 6-figure bug bounties within the Apple Bug Bounty Program, then you're in the right place! Further notes: [Is Hackintosh, OSX-KVM, or PodMan-OSX legal?](https://bphd/is-hackintosh-osx-kvm-or-PodMan-osx-legal/)
 
 Product names, logos, brands and other trademarks referred to within this project are the property of their respective trademark holders. These trademark holders are not affiliated with our repository in any capacity. They do not sponsor or endorse this project in any way.
 
@@ -508,24 +508,24 @@ Product names, logos, brands and other trademarks referred to within this projec
 
 ## Container images
 
-### Already set up or just looking to make a container quickly? Check out our [quick start](#quick-start-docker-osx) or see a bunch more use cases under our [container creation examples](#container-creation-examples) section.
+### Already set up or just looking to make a container quickly? Check out our [quick start](#quick-start-PodMan-osx) or see a bunch more use cases under our [container creation examples](#container-creation-examples) section.
 
-There are several different Docker-OSX images available that are suitable for different purposes.
+There are several different PodMan-OSX images available that are suitable for different purposes.
 
-- `sickcodes/docker-osx:latest` - [I just want to try it out.](#quick-start-docker-osx)
-- `sickcodes/docker-osx:latest` - [I want to use Docker-OSX to develop/secure apps in Xcode (sign into Xcode, Transporter)](#quick-start-your-own-image-naked-container-image)
-- `sickcodes/docker-osx:naked` - [I want to use Docker-OSX for CI/CD-related purposes (sign into Xcode, Transporter)](#building-a-headless-container-from-a-custom-image)
+- `bphd/PodMan-osx:latest` - [I just want to try it out.](#quick-start-PodMan-osx)
+- `bphd/PodMan-osx:latest` - [I want to use PodMan-OSX to develop/secure apps in Xcode (sign into Xcode, Transporter)](#quick-start-your-own-image-naked-container-image)
+- `bphd/PodMan-osx:naked` - [I want to use PodMan-OSX for CI/CD-related purposes (sign into Xcode, Transporter)](#building-a-headless-container-from-a-custom-image)
 
 Create your personal image using `:latest` or `big-sur`. Then, pull the image out the image. Afterwards, you will be able to duplicate that image and import it to the `:naked` container, in order to revert the container to a previous state repeatedly.
 
-- `sickcodes/docker-osx:auto` - [I'm only interested in using the command line (useful for compiling software or using Homebrew headlessly).](#prebuilt-image-with-arbitrary-command-line-arguments)
-- `sickcodes/docker-osx:naked` - [I need iMessage/iCloud for security research.](#generating-serial-numbers)
-- `sickcodes/docker-osx:big-sur` - [I want to run Big Sur.](#quick-start-docker-osx)
-- `sickcodes/docker-osx:monterey` - [I want to run Monterey.](#quick-start-docker-osx)
-- `sickcodes/docker-osx:ventura` - [I want to run Ventura.](#quick-start-docker-osx)
+- `bphd/PodMan-osx:auto` - [I'm only interested in using the command line (useful for compiling software or using Homebrew headlessly).](#prebuilt-image-with-arbitrary-command-line-arguments)
+- `bphd/PodMan-osx:naked` - [I need iMessage/iCloud for security research.](#generating-serial-numbers)
+- `bphd/PodMan-osx:big-sur` - [I want to run Big Sur.](#quick-start-PodMan-osx)
+- `bphd/PodMan-osx:monterey` - [I want to run Monterey.](#quick-start-PodMan-osx)
+- `bphd/PodMan-osx:ventura` - [I want to run Ventura.](#quick-start-PodMan-osx)
 
-- `sickcodes/docker-osx:high-sierra` - I want to run High Sierra.
-- `sickcodes/docker-osx:mojave` - I want to run Mojave.
+- `bphd/PodMan-osx:high-sierra` - I want to run High Sierra.
+- `bphd/PodMan-osx:mojave` - I want to run Mojave.
 
 ## Initial setup
 Before you do anything else, you will need to turn on hardware virtualization in your BIOS. Precisely how will depend on your particular machine (and BIOS), but it should be straightforward.
@@ -554,9 +554,9 @@ echo 1 | sudo tee /sys/module/kvm/parameters/ignore_msrs
 sudo modprobe kvm
 ```
 
-### I'd like to run Docker-OSX on Windows
+### I'd like to run PodMan-OSX on Windows
 
-Running Docker-OSX on Windows is possible using WSL2 (Windows 11 + Windows Subsystem for Linux).
+Running PodMan-OSX on Windows is possible using WSL2 (Windows 11 + Windows Subsystem for Linux).
 
 You must have Windows 11 installed with build 22000+ (21H2 or higher).
 
@@ -587,7 +587,7 @@ KVM acceleration can be used
 
 Use the command `sudo apt -y install bridge-utils cpu-checker libvirt-clients libvirt-daemon qemu qemu-kvm` to install it if it isn't.
 
-Now download and install [Docker for Windows](https://docs.docker.com/desktop/windows/install/) if it is not already installed.
+Now download and install [PodMan for Windows](https://docs.PodMan.com/desktop/windows/install/) if it is not already installed.
 
 After installation, go into Settings and check these 2 boxes:
 
@@ -602,7 +602,7 @@ Finally, there are 3 ways to get video output:
 
 - WSLg: This is the simplest and easiest option to use. There may be some issues such as the keyboard not being fully passed through or seeing a second mouse on the desktop - [Issue on WSLg](https://github.com/microsoft/wslg/issues/376) - but this option is recommended.
 
-To use WSLg's built-in X-11 server, change these two lines in the docker run command to point Docker-OSX to WSLg.
+To use WSLg's built-in X-11 server, change these two lines in the PodMan run command to point PodMan-OSX to WSLg.
 
 ```
 -e "DISPLAY=${DISPLAY:-:0.0}" \
@@ -615,7 +615,7 @@ Or try:
 -v /mnt/wslg/.X11-unix:/tmp/.X11-unix \
 ```
 
-For Ubuntu 20.x on Windows, see [https://github.com/sickcodes/Docker-OSX/discussions/458](https://github.com/sickcodes/Docker-OSX/discussions/458)
+For Ubuntu 20.x on Windows, see [https://github.com/bphd/PodMan-OSX/discussions/458](https://github.com/bphd/PodMan-OSX/discussions/458)
 
 - VNC: See the [VNC section](#building-a-headless-container-which-allows-insecure-vnc-on-localhost-for-local-use-only) for more information. You could also add -vnc argument to qemu. Connect to your mac VM via a VNC Client. [Here is a how to](https://wiki.archlinux.org/title/QEMU#VNC)
 - Desktop Environment: This will give you a full desktop linux experience but it will use a bit more of the computer's resources. Here is an example guide, but there are other guides that help set up a desktop environment. [DE Example](https://www.makeuseof.com/tag/linux-desktop-windows-subsystem/)
@@ -639,11 +639,11 @@ For Ubuntu 20.x on Windows, see [https://github.com/sickcodes/Docker-OSX/discuss
 
 ### Routine checks
 
-This is a great place to start if you are having trouble getting going, especially if you're not that familiar with Docker just yet.
+This is a great place to start if you are having trouble getting going, especially if you're not that familiar with PodMan just yet.
 
 Just looking to make a container quickly? Check out our [container creation examples](#container-creation-examples) section.
 
-More specific/advanced troubleshooting questions and answers may be found in [More Questions and Answers](#more-questions-and-answers). You should also check out the [closed issues](https://github.com/sickcodes/Docker-OSX/issues?q=is%3Aissue+is%3Aclosed). Someone else might have gotten a question like yours answered already even if you can't find it in this document!
+More specific/advanced troubleshooting questions and answers may be found in [More Questions and Answers](#more-questions-and-answers). You should also check out the [closed issues](https://github.com/bphd/PodMan-OSX/issues?q=is%3Aissue+is%3Aclosed). Someone else might have gotten a question like yours answered already even if you can't find it in this document!
 
 #### Confirm that your CPU supports virtualization
 
@@ -651,28 +651,28 @@ See [initial setup](#initial-setup).
 
 
 
-#### Docker Unknown Server OS error
+#### PodMan Unknown Server OS error
 
 ```console
-docker: unknown server OS: .
-See 'docker run --help'.
+PodMan: unknown server OS: .
+See 'PodMan run --help'.
 ```
 
-This means your docker daemon is not running.
+This means your PodMan daemon is not running.
 
-`pgrep dockerd` should return nothing
+`pgrep PodMand` should return nothing
 
 Therefore, you have a few choices.
 
-`sudo dockerd` for foreground Docker usage. I use this.
+`sudo PodMand` for foreground PodMan usage. I use this.
 
 Or
 
-`sudo systemctl --start dockerd` to start dockerd this now.
+`sudo systemctl --start PodMand` to start PodMand this now.
 
 Or
 
-`sudo systemctl --enable --now dockerd` for start dockerd on every reboot, and now.
+`sudo systemctl --enable --now PodMand` for start PodMand on every reboot, and now.
 
 
 #### Use more CPU Cores/SMP
@@ -687,15 +687,15 @@ Examples:
 
 Note, unlike memory, CPU usage is shared. so you can allocate all of your CPU's to the container.
 
-### Confirm your user is part of the Docker group, KVM group, libvirt group
+### Confirm your user is part of the PodMan group, KVM group, libvirt group
 
-#### Add yourself to the Docker group
+#### Add yourself to the PodMan group
 
-If you use `sudo dockerd` or dockerd is controlled by systemd/systemctl, then you must be in the Docker group.
-If you are not in the Docker group:
+If you use `sudo PodMand` or PodMand is controlled by systemd/systemctl, then you must be in the PodMan group.
+If you are not in the PodMan group:
 
 ```bash
-sudo usermod -aG docker "${USER}"
+sudo usermod -aG PodMan "${USER}"
 ```
 and also add yourself to the kvm and libvirt groups if needed:
 
@@ -706,74 +706,74 @@ sudo usermod -aG kvm "${USER}"
 
 See also: [initial setup](#initial-setup).
 
-#### Is the docker daemon enabled?
+#### Is the PodMan daemon enabled?
 
 ```bash
 # run ad hoc
-sudo dockerd
+sudo PodMand
 
 # or daemonize it
-sudo nohup dockerd &
+sudo nohup PodMand &
 
 # enable it in systemd (it will persist across reboots this way)
-sudo systemctl enable --now docker
+sudo systemctl enable --now PodMan
 
 # or just start it as your user with systemd instead of enabling it
-systemctl start docker
+systemctl start PodMan
 ```
 
 ## More Questions and Answers
 
 Big thank you to our contributors who have worked out almost every conceivable issue so far!
 
-[https://github.com/sickcodes/Docker-OSX/blob/master/CREDITS.md](https://github.com/sickcodes/Docker-OSX/blob/master/CREDITS.md)
+[https://github.com/bphd/PodMan-OSX/blob/master/CREDITS.md](https://github.com/bphd/PodMan-OSX/blob/master/CREDITS.md)
 
 
 ### Start the same container later (persistent disk)
 
-Created a container with `docker run` and want to reuse the underlying image again later? 
+Created a container with `PodMan run` and want to reuse the underlying image again later? 
 
 NB: see [container creation examples](#container-creation-examples) first for how to get to the point where this is applicable.
 
-This is for when you want to run the SAME container again later. You may need to use `docker commit` to save your container before you can reuse it. Check if your container is persisted with `docker ps --all`.
+This is for when you want to run the SAME container again later. You may need to use `PodMan commit` to save your container before you can reuse it. Check if your container is persisted with `PodMan ps --all`.
 
 If you don't run this you will have a new image every time. 
 
 ```bash
 # look at your recent containers and copy the CONTAINER ID
-docker ps --all
+PodMan ps --all
 
-# docker start the container ID
-docker start -ai abc123xyz567
+# PodMan start the container ID
+PodMan start -ai abc123xyz567
 
 # if you have many containers, you can try automate it with filters like this
-# docker ps --all --filter "ancestor=sickcodes/docker-osx"
+# PodMan ps --all --filter "ancestor=bphd/PodMan-osx"
 # for locally tagged/built containers
-# docker ps --all --filter "ancestor=docker-osx"
+# PodMan ps --all --filter "ancestor=PodMan-osx"
 
 ```
 
-You can also pull the `.img` file out of the container, which is stored in `/var/lib/docker`, and supply it as a runtime argument to the `:naked` Docker image. 
+You can also pull the `.img` file out of the container, which is stored in `/var/lib/PodMan`, and supply it as a runtime argument to the `:naked` PodMan image. 
 
-See also: [here](https://github.com/sickcodes/Docker-OSX/issues/197).
+See also: [here](https://github.com/bphd/PodMan-OSX/issues/197).
 
-### I have used Docker-OSX before and want to restart a container that starts automatically
+### I have used PodMan-OSX before and want to restart a container that starts automatically
 
-Containers that use `sickcodes/docker-osx:auto` can be stopped while being started.
+Containers that use `bphd/PodMan-osx:auto` can be stopped while being started.
 
 ```bash
 # find last container
-docker ps -a
+PodMan ps -a
 
-# docker start old container with -i for interactive, -a for attach STDIN/STDOUT
-docker start -ai -i <Replace this with your ID>
+# PodMan start old container with -i for interactive, -a for attach STDIN/STDOUT
+PodMan start -ai -i <Replace this with your ID>
 ```
 
 ### LibGTK errors "connection refused"
 
-You may see one or more libgtk-related errors if you do not have everything set up for hardware virtualisation yet. If you have not yet done so, check out the [initial setup](#initial-setup) section and the [routine checks](#routine-checks) section as you may have missed a setup step or may not have all the needed Docker dependencies ready to go.
+You may see one or more libgtk-related errors if you do not have everything set up for hardware virtualisation yet. If you have not yet done so, check out the [initial setup](#initial-setup) section and the [routine checks](#routine-checks) section as you may have missed a setup step or may not have all the needed PodMan dependencies ready to go.
 
-See also: [here](https://github.com/sickcodes/Docker-OSX/issues/174).
+See also: [here](https://github.com/bphd/PodMan-OSX/issues/174).
 
 #### Permissions denied error
 
@@ -799,7 +799,7 @@ xhost +
 ### RAM over-allocation
 You cannot allocate more RAM than your machine has. The default is 3 Gigabytes: `-e RAM=3`.
 
-If you are trying to allocate more RAM to the container than you currently have available, you may see an error like the following: `cannot set up guest memory 'pc.ram': Cannot allocate memory`. See also: [here](https://github.com/sickcodes/Docker-OSX/issues/188), [here](https://github.com/sickcodes/Docker-OSX/pull/189).
+If you are trying to allocate more RAM to the container than you currently have available, you may see an error like the following: `cannot set up guest memory 'pc.ram': Cannot allocate memory`. See also: [here](https://github.com/bphd/PodMan-OSX/issues/188), [here](https://github.com/bphd/PodMan-OSX/pull/189).
 
 For example (below) the `buff/cache` already contains 20 Gigabytes of allocated RAM:
 
@@ -832,35 +832,35 @@ Swap:           11Gi          0B        11Gi
 Note: [AppleALC](https://github.com/acidanthera/AppleALC), [`alcid`](https://dortania.github.io/OpenCore-Post-Install/universal/audio.html) and [VoodooHDA-OC](https://github.com/chris1111/VoodooHDA-OC) do not have [codec support](https://osy.gitbook.io/hac-mini-guide/details/hda-fix#hda-codec). However, [IORegistryExplorer](https://github.com/vulgo/IORegistryExplorer) does show the controller component working.
 
 ```bash
-docker run \
+PodMan run \
     --device /dev/kvm \
     -e AUDIO_DRIVER=pa,server=unix:/tmp/pulseaudio.socket \
     -v "/run/user/$(id -u)/pulse/native:/tmp/pulseaudio.socket" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    sickcodes/docker-osx
+    bphd/PodMan-osx
 ```
 
 #### PulseAudio debugging
 
 ```bash
-docker run \
+PodMan run \
     --device /dev/kvm \
     -e AUDIO_DRIVER=pa,server=unix:/tmp/pulseaudio.socket \
     -v "/run/user/$(id -u)/pulse/native:/tmp/pulseaudio.socket" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e PULSE_SERVER=unix:/tmp/pulseaudio.socket \
-    sickcodes/docker-osx pactl list
+    bphd/PodMan-osx pactl list
 ```
 
 #### PulseAudio with WSLg
 
 ```bash
-docker run \
+PodMan run \
     --device /dev/kvm \
     -e AUDIO_DRIVER=pa,server=unix:/tmp/pulseaudio.socket \
     -v /mnt/wslg/runtime-dir/pulse/native:/tmp/pulseaudio.socket \
     -v /mnt/wslg/.X11-unix:/tmp/.X11-unix \
-    sickcodes/docker-osx
+    bphd/PodMan-osx
 ```
 
 ### Forward additional ports (nginx hosting example)
@@ -874,12 +874,12 @@ host:10023 <-> 10023:container:10023 <-> 80:guest
 On the host machine, run:
 
 ```bash
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -e ADDITIONAL_PORTS='hostfwd=tcp::10023-:80,' \
     -p 10023:10023 \
-    sickcodes/docker-osx:auto
+    bphd/PodMan-osx:auto
 ```
 
 In a Terminal session running the container, run:
@@ -907,15 +907,15 @@ Additionally, you can string multiple statements together, for example:
 
 You might not need to do anything with the default setup to enable internet connectivity from inside the container. Additionally, `curl` may work even if `ping` doesn't.
 
-See discussion [here](https://github.com/sickcodes/Docker-OSX/issues/177) and [here](https://github.com/sickcodes/Docker-OSX/issues/72) and [here](https://github.com/sickcodes/Docker-OSX/issues/88).
+See discussion [here](https://github.com/bphd/PodMan-OSX/issues/177) and [here](https://github.com/bphd/PodMan-OSX/issues/72) and [here](https://github.com/bphd/PodMan-OSX/issues/88).
 
 ### Enable IPv4 forwarding for bridged network connections for remote installations
 
 This is not required for LOCAL installations.
 
-Additionally note it may [cause the host to leak your IP, even if you're using a VPN in the container](https://sick.codes/cve-2020-15590/).
+Additionally note it may [cause the host to leak your IP, even if you're using a VPN in the container](https://bphd/cve-2020-15590/).
 
-However, if you're trying to connect to an instance of Docker-OSX remotely (e.g. an instance of Docker-OSX hosted in a datacenter), this may improve your performance:
+However, if you're trying to connect to an instance of PodMan-OSX remotely (e.g. an instance of PodMan-OSX hosted in a datacenter), this may improve your performance:
 
 ```bash
 # enable for current session
@@ -936,7 +936,7 @@ nano /etc/sysctl.conf || vi /etc/sysctl.conf || vim /etc/sysctl.conf
 # now reboot
 ```
 
-## Share folder with Docker-OSX QEMU macOS
+## Share folder with PodMan-OSX QEMU macOS
 
 Sharing a folder with guest is quite simple.
 
@@ -961,7 +961,7 @@ Full example:
 # stat mac_hdd_ng.img
 SHARE=~/somefolder
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -969,7 +969,7 @@ docker run -it \
     -v "${PWD}/mac_hdd_ng.img:/home/arch/OSX-KVM/mac_hdd_ng.img" \
     -v "${SHARE}:/mnt/hostshare" \
     -e EXTRA="-virtfs local,path=/mnt/hostshare,mount_tag=hostshare,security_model=passthrough,id=hostshare" \
-    sickcodes/docker-osx:latest
+    bphd/PodMan-osx:latest
 
 # !!! Open Terminal inside macOS and run the following command to mount the virtual file system
 # sudo -S mount_9p hostshare
@@ -999,7 +999,7 @@ chown 1000:985 /srv/nfs/share
 chmod u+rwx /srv/nfs/share
 ```
 
-Start the Docker-OSX container with the additional flag `--network host`
+Start the PodMan-OSX container with the additional flag `--network host`
 
 Create and mount the nfs folder from the mac terminal:
 ```
@@ -1020,7 +1020,7 @@ Pick a port, for example, `7700`.
 On Linux:
 `sudo usbredirserver -p 7700 1e3d:2096`
 
-Now, in the Docker window hit Enter to see the `(qemu)` console.
+Now, in the PodMan window hit Enter to see the `(qemu)` console.
 
 You can add/remove the disk using commands like this, even once the machine is started:
 
@@ -1028,7 +1028,7 @@ You can add/remove the disk using commands like this, even once the machine is s
 
 `device_add usb-redir,chardev=usbredirchardev1,id=usbredirdev1,debug=4`
 
-## Mount USB Drive inside macOS at boot Docker OSX
+## Mount USB Drive inside macOS at boot PodMan OSX
 
 ```bash
 PORT=7700
@@ -1039,11 +1039,11 @@ IP_ADDRESS=172.17.0.1
 
 ### Fedora: enable internet connectivity with a bridged network
 
-Fedora's default firewall settings may prevent Docker's network interface from reaching the internet. In order to resolve this, you will need to whitelist the interface in your firewall:
+Fedora's default firewall settings may prevent PodMan's network interface from reaching the internet. In order to resolve this, you will need to whitelist the interface in your firewall:
 
 ```bash
-# Set the docker0 bridge to the trusted zone
-sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
+# Set the PodMan0 bridge to the trusted zone
+sudo firewall-cmd --permanent --zone=trusted --add-interface=PodMan0
 sudo firewall-cmd --reload
 ```
 
@@ -1077,19 +1077,19 @@ egrep -c '(svm|vmx)' /proc/cpuinfo
   Xcode platforms, etc.
 - Once you are satisfied with the amount of free space, enable trim with `sudo trimforce enable`, and reboot.
 - Zero out the empty space on the disk with `dd if=/dev/zero of=./empty && rm -f empty`
-- Shut down the VM and copy out the qcow image with `docker cp stoppedcontainer:/home/arch/OSX-KVM/mac_hdd_ng.img .`
+- Shut down the VM and copy out the qcow image with `PodMan cp stoppedcontainer:/home/arch/OSX-KVM/mac_hdd_ng.img .`
 - Run `qemu-img check -r all mac_hdd_ng.img` to fix any errors.
 - Run `qemu-img convert -O qcow2 mac_hdd_ng.img deduped.img` and check for errors again
 - **OPTIONAL:** Run `qemu-img convert -c -O qcow2 deduped.img compressed.img` to further compress the image. This may reduce the runtime speed though, but it should reduce the size by roughly 25%.
-- Check for errors again, and build a fresh docker image. E.g. with this Dockerfile
+- Check for errors again, and build a fresh PodMan image. E.g. with this PodManfile
 
 ```
-FROM sickcodes/docker-osx
+FROM bphd/PodMan-osx
 USER arch
 COPY --chown=arch ./deduped.img /home/arch/OSX-KVM/mac_hdd_ng.img
 ```
 
-### Run Docker-OSX headlessly with Telnet
+### Run PodMan-OSX headlessly with Telnet
 
 First make sure [autoboot is enabled](#autoboot-into-osx-after-youve-installed-everything)
 
@@ -1099,13 +1099,13 @@ Next, you will want to set up SSH to be automatically started.
 sudo systemsetup -setremotelogin on
 ```
 
-Make sure to commit the new docker image and save it, or rebuild as described in the [section on reducing disk space](#how-to-reduce-the-size-of-the-image).
+Make sure to commit the new PodMan image and save it, or rebuild as described in the [section on reducing disk space](#how-to-reduce-the-size-of-the-image).
 
 Then run it with these arguments.
 
 ```bash
 # Run with the -nographic flag, and enable a telnet interface
-  docker run \
+  PodMan run \
     --device /dev/kvm \
     -p 50922:10022 \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
@@ -1113,14 +1113,14 @@ Then run it with these arguments.
     mycustomimage
 ```
 
-### What mirrors are appropriate to use to build Docker-OSX locally?
+### What mirrors are appropriate to use to build PodMan-OSX locally?
 
-If you are building Docker-OSX locally, you'll probably want to use Arch Linux's mirrors.
+If you are building PodMan-OSX locally, you'll probably want to use Arch Linux's mirrors.
 
 Mirror locations can be found here (uses two-letter country codes): https://archlinux.org/mirrorlist/all/
 
 ```bash
-docker build -t docker-osx:latest \
+PodMan build -t PodMan-osx:latest \
     --build-arg RANKMIRRORS=true \
     --build-arg MIRROR_COUNTRY=US \
     --build-arg MIRROR_COUNT=10 \
@@ -1130,11 +1130,11 @@ docker build -t docker-osx:latest \
 
 ### Custom QEMU Arguments (passthrough devices)
 
-Pass any devices/directories to the Docker container & the QEMU arguments using the handy runtime argument provider option `-e EXTRA=`.
+Pass any devices/directories to the PodMan container & the QEMU arguments using the handy runtime argument provider option `-e EXTRA=`.
 
 ```bash
 # example customizations
-docker run \
+PodMan run \
     -e RAM=4 \
     -e SMP=4 \
     -e CORES=4 \
@@ -1149,12 +1149,12 @@ docker run \
     --device /dev/kvm \
     --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    docker-osx:latest
+    PodMan-osx:latest
 ```
 
 ### Generating serial numbers
 
-Generate serial numbers in `./custom` OR make docker generate them at runtime (see below).
+Generate serial numbers in `./custom` OR make PodMan generate them at runtime (see below).
 
 At any time, verify your serial number before logging into iCloud, etc.
 
@@ -1191,7 +1191,7 @@ These two files are from OSX-KVM.
 
 You don't need to touch these two files.
 
-The config.plist has 5 values replaced with placeholders. [Click here to see those values for no reason.](https://github.com/sickcodes/Docker-OSX/blob/master/custom/config-nopicker-custom.plist#L705)
+The config.plist has 5 values replaced with placeholders. [Click here to see those values for no reason.](https://github.com/bphd/PodMan-OSX/blob/master/custom/config-nopicker-custom.plist#L705)
 
 - `generate-unique-machine-values.sh`
 This script will generate serial numbers, with Mac Addresses, plus output to CSV/TSV, plus make a `bootdisk image`.
@@ -1223,13 +1223,13 @@ generate-specific-bootdisk.sh \
 
 ```bash
 # proof of concept only, generates random serial numbers, headlessly, and quits right after.
-docker run --rm -it \
+PodMan run --rm -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -e NOPICKER=true \
     -e GENERATE_UNIQUE=true \
     -e DEVICE_MODEL="iMacPro1,1" \
-    sickcodes/docker-osx:auto
+    bphd/PodMan-osx:auto
 
 # -e OSX_COMMANDS='ioreg -l | grep IOPlatformSerialNumber' \
 ```
@@ -1240,7 +1240,7 @@ docker run --rm -it \
 # run the same as above 17gb auto image, with SSH, with nopicker, and save the bootdisk for later.
 # you don't need to save the bootdisk IF you supply specific serial numbers!
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -e NOPICKER=true \
@@ -1251,7 +1251,7 @@ docker run -it \
     -e UUID="5CCB366D-9118-4C61-A00A-E5BAF3BED451" \
     -e MAC_ADDRESS="A8:5C:2C:9A:46:2F" \
     -e OSX_COMMANDS='ioreg -l | grep IOPlatformSerialNumber' \
-    sickcodes/docker-osx:auto
+    bphd/PodMan-osx:auto
 ```
 
 #### This example generates a specific set of serial numbers at runtime, with your existing image, at 1000x1000 display resolution
@@ -1261,7 +1261,7 @@ docker run -it \
 
 stat mac_hdd_ng.img # make sure you have an image if you're using :naked
 
-docker run -it \
+PodMan run -it \
     -v "${PWD}/mac_hdd_ng.img:/image" \
     --device /dev/kvm \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
@@ -1276,7 +1276,7 @@ docker run -it \
     -e MAC_ADDRESS="A8:5C:2C:9A:46:2F" \
     -e WIDTH=1000 \
     -e HEIGHT=1000 \
-    sickcodes/docker-osx:naked
+    bphd/PodMan-osx:naked
 ```
 
 If you want to generate serial numbers, either make them at runtime using
@@ -1300,7 +1300,7 @@ touch ./output.env
 
 # generate fresh random serial numbers, with a screen, using your own image, and save env file with your new serial numbers for later.
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -1311,7 +1311,7 @@ docker run -it \
     -e DEVICE_MODEL="iMacPro1,1" \
     -v "${PWD}/output.env:/env" \
     -v "${PWD}/mac_hdd_ng_testing.img:/image" \
-    sickcodes/docker-osx:naked
+    bphd/PodMan-osx:naked
 ```
 
 To use iMessage or iCloud you need to change `5` values.
@@ -1340,9 +1340,9 @@ Or tell the container to use specific ones using `-e GENERATE_SPECIFIC=true`
 
 The display resolution is controlled by this line:
 
-https://github.com/sickcodes/Docker-OSX/blob/master/custom/config-nopicker-custom.plist#L819
+https://github.com/bphd/PodMan-OSX/blob/master/custom/config-nopicker-custom.plist#L819
 
-Instead of mounting that disk, Docker-OSX will generate a new `OpenCore.qcow2` by using this one cool trick:
+Instead of mounting that disk, PodMan-OSX will generate a new `OpenCore.qcow2` by using this one cool trick:
 
 ```bash
 -e GENERATE_UNIQUE=true \
@@ -1364,13 +1364,13 @@ It will take around 30 seconds longer to boot because it needs to make a new boo
 -e MAC_ADDRESS="" \
 ```
 
-#### Change Docker-OSX Resolution Examples
+#### Change PodMan-OSX Resolution Examples
 
 ```bash
 # using an image in your current directory
 stat mac_hdd_ng.img
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v "${PWD}/mac_hdd_ng.img:/image" \
@@ -1382,15 +1382,15 @@ docker run -it \
     -e BOARD_SERIAL="C027251024NJG36UE" \
     -e UUID="5CCB366D-9118-4C61-A00A-E5BAF3BED451" \
     -e MAC_ADDRESS="A8:5C:2C:9A:46:2F" \
-    -e MASTER_PLIST_URL=https://raw.githubusercontent.com/sickcodes/Docker-OSX/master/custom/config-nopicker-custom.plist \
+    -e MASTER_PLIST_URL=https://raw.githubusercontent.com/bphd/PodMan-OSX/master/custom/config-nopicker-custom.plist \
     -e WIDTH=1600 \
     -e HEIGHT=900 \
-    sickcodes/docker-osx:naked
+    bphd/PodMan-osx:naked
 ```
 
 ```bash
 # generating random serial numbers, using the DIY installer, along with the screen resolution changes.
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -1398,7 +1398,7 @@ docker run -it \
     -e GENERATE_UNIQUE=true \
     -e WIDTH=800 \
     -e HEIGHT=600 \
-    sickcodes/docker-osx:latest
+    bphd/PodMan-osx:latest
 ```
 
 Here's a few other resolutions! If your resolution is invalid, it will default to 800x600.
@@ -1430,19 +1430,19 @@ Here's a few other resolutions! If your resolution is invalid, it will default t
 
 #### This example shows how to change resolution after the container is created.
 
-First step is to stop the docker daemon
+First step is to stop the PodMan daemon
 ```
-sudo systemctl stop docker
+sudo systemctl stop PodMan
 ```
 The second step is to change container config in 
 ```
-/var/lib/docker/containers/[container-id]/config.v2.json
+/var/lib/PodMan/containers/[container-id]/config.v2.json
 ```
 (Suppose your original WIDTH is 1024 and HEIGHT is 768, you can search 1024 and replace it with the new value. Same for 768.)
 
-The last step is to restart the docker daemon
+The last step is to restart the PodMan daemon
 ```
-sudo systemctl restart docker
+sudo systemctl restart PodMan
 ```
 
 ### Mounting physical disks in Mac OSX
@@ -1454,8 +1454,8 @@ Use the `config-custom.plist` because you probably want to see the boot menu, ot
 ```bash
 DISK_TWO="${PWD}/mount_me.img"
 ```
-```dockerfile
--e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
+```PodManfile
+-e MASTER_PLIST_URL='https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist' \
 -v "${DISK_TWO}:/disktwo" \
 -e EXTRA='-device ide-hd,bus=sata.5,drive=DISK-TWO -drive id=DISK-TWO,if=none,file=/disktwo,format=qcow2' \
 ```
@@ -1466,23 +1466,23 @@ DISK_TWO="${PWD}/mount_me.img"
 OSX_IMAGE="${PWD}/mac_hdd_ng_xcode_bigsur.img"
 DISK_TWO="${PWD}/mount_me.img"
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist' \
+    -e MASTER_PLIST_URL='https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist' \
     -v "${OSX_IMAGE}":/image \
     -v "${DISK_TWO}":/disktwo \
     -e EXTRA='-device ide-hd,bus=sata.5,drive=DISK-TWO -drive id=DISK-TWO,if=none,file=/disktwo,format=qcow2' \
-    sickcodes/docker-osx:naked
+    bphd/PodMan-osx:naked
 ```
 
-See also: [here](https://github.com/sickcodes/Docker-OSX/issues/222).
+See also: [here](https://github.com/bphd/PodMan-OSX/issues/222).
 
 
 #### Extracting the APFS disk on Linux
 
-In Docker-OSX, we are using `qcow2` images.
+In PodMan-OSX, we are using `qcow2` images.
 
 This means the image grows as you use it, but the guest OS thinks you have 200GB available.
 
@@ -1525,16 +1525,16 @@ Firstly, QEMU must be started as root.
 It is also potentially possible to accomplish USB passthrough by changing the permissions of the device in the container.
 See [here](https://www.linuxquestions.org/questions/slackware-14/qemu-usb-permissions-744557/#post3628691).
 
-For example, create a new Dockerfile with the following
+For example, create a new PodManfile with the following
 
 ```bash
-FROM sickcodes/docker-osx
+FROM bphd/PodMan-osx
 USER arch
 RUN sed -i -e s/exec\ qemu/exec\ sudo\ qemu/ ./Launch.sh
 COPY --chown=arch ./new_image.img /home/arch/OSX-KVM/mac_hdd_ng.img
 ```
 
-Where `new_image.img` is the qcow2 image you extracted. Then rebuild with `docker build .`
+Where `new_image.img` is the qcow2 image you extracted. Then rebuild with `PodMan build .`
 
 Next we need to find out the bus and port numbers of the USB device we want to pass through to the VM:
 
@@ -1559,7 +1559,7 @@ See [here](https://unix.stackexchange.com/a/452946/101044) for more details.
 ```bash
 # hostbus and hostport correspond to the numbers from lsusb
 # runs in privileged mode to enable access to the usb devices.
-docker run \
+PodMan run \
   --privileged \
   --device /dev/kvm \
   -e RAM=4 \
@@ -1577,11 +1577,11 @@ Important Note: this will cause the host system to lose access to the USB device
 
 #### Quick Start your own image (naked container image)
 
-This is my favourite container. You can supply an existing disk image as a Docker command line argument.
+This is my favourite container. You can supply an existing disk image as a PodMan command line argument.
 
-- Pull images out using `sudo find /var/lib/docker -name mac_hdd_ng.img -size +10G`
+- Pull images out using `sudo find /var/lib/PodMan -name mac_hdd_ng.img -size +10G`
 
-- Supply your own local image with the command argument `-v "${PWD}/mac_hdd_ng.img:/image"` and use `sickcodes/docker-osx:naked` when instructing Docker to create your container.
+- Supply your own local image with the command argument `-v "${PWD}/mac_hdd_ng.img:/image"` and use `bphd/PodMan-osx:naked` when instructing PodMan to create your container.
 
   - Naked image is for booting any existing .img file, e.g in the current working directory (`$PWD`)
   - By default, this image has a variable called `NOPICKER` which is `"true"`. This skips the disk selection menu. Use `-e NOPICKER=false` or any other string than the word `true` to enter the boot menu.
@@ -1589,27 +1589,27 @@ This is my favourite container. You can supply an existing disk image as a Docke
     This lets you use other disks instead of skipping the boot menu, e.g. recovery disk or disk utility.
 
 ```bash
-docker pull sickcodes/docker-osx:naked
+PodMan pull bphd/PodMan-osx:naked
 
 # run your own image + SSH
 # change mac_hdd_ng.img
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v "${PWD}/mac_hdd_ng.img:/image" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
-    sickcodes/docker-osx:naked
+    bphd/PodMan-osx:naked
 
 # run local copy of the auto image + SSH + Boot menu
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v "${PWD}/mac_hdd_ng_auto.img:/image" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e "NOPICKER=false" \
-    sickcodes/docker-osx:naked
+    bphd/PodMan-osx:naked
 ```
 
 ### Building an OSX container with video output
@@ -1623,21 +1623,21 @@ The Quick Start command should work out of the box, provided that you keep the f
 
 #### Prebuilt image with arbitrary command line arguments 
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/auto?label=sickcodes%2Fdocker-osx%3Aauto](https://img.shields.io/docker/image-size/sickcodes/docker-osx/auto?label=sickcodes%2Fdocker-osx%3Aauto)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/auto?label=bphd%2FPodMan-osx%3Aauto](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/auto?label=bphd%2FPodMan-osx%3Aauto)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 `-e OSX_COMMANDS` lets you run any commands inside the container
 
 ```bash
-docker pull sickcodes/docker-osx:auto
+PodMan pull bphd/PodMan-osx:auto
 
 # boot to OS X shell + display + specify commands to run inside OS X!
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e "OSX_COMMANDS=/bin/bash -c \"put your commands here\"" \
-    sickcodes/docker-osx:auto
+    bphd/PodMan-osx:auto
 
 # Boots in a minute or two!
 ```
@@ -1645,10 +1645,10 @@ docker run -it \
 OR if you have an image already and just want to log in and execute arbitrary commands:
 
 ```bash
-docker pull sickcodes/docker-osx:naked-auto
+PodMan pull bphd/PodMan-osx:naked-auto
 
 # boot to OS X shell + display + specify commands to run inside OS X!
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -1656,7 +1656,7 @@ docker run -it \
     -e USERNAME=yourusername \
     -e PASSWORD=yourpassword \
     -e "OSX_COMMANDS=/bin/bash -c \"put your commands here\"" \
-    sickcodes/docker-osx:naked-auto
+    bphd/PodMan-osx:naked-auto
 
 # Boots in a minute or two!
 
@@ -1664,11 +1664,11 @@ docker run -it \
 
 ### Further examples
 
-There's a myriad of other potential use cases that can work perfectly with Docker-OSX, some of which you'll see below!
+There's a myriad of other potential use cases that can work perfectly with PodMan-OSX, some of which you'll see below!
 
 ### Building a headless OSX container
 
-For a headless container, **remove** the following two lines from your `docker run` command:
+For a headless container, **remove** the following two lines from your `PodMan run` command:
 
 ```
     # -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -1677,38 +1677,38 @@ For a headless container, **remove** the following two lines from your `docker r
 
 #### Building a headless container from a custom image 
 
-[![https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked?label=sickcodes%2Fdocker-osx%3Anaked](https://img.shields.io/docker/image-size/sickcodes/docker-osx/naked?label=sickcodes%2Fdocker-osx%3Anaked)](https://hub.docker.com/r/sickcodes/docker-osx/tags?page=1&ordering=last_updated)
+[![https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked?label=bphd%2FPodMan-osx%3Anaked](https://img.shields.io/PodMan/image-size/bphd/PodMan-osx/naked?label=bphd%2FPodMan-osx%3Anaked)](https://hub.PodMan.com/r/bphd/PodMan-osx/tags?page=1&ordering=last_updated)
 
 This is particularly helpful for CI/CD pipelines.
 
 ```bash
 # run your own image headless + SSH
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
     -v "${PWD}/mac_hdd_ng.img:/image" \
-    sickcodes/docker-osx:naked
+    bphd/PodMan-osx:naked
 ```
 
 ### Building a headless container that allows insecure VNC on localhost (!for local use only!)
 
 **Must change -it to -i to be able to interact with the QEMU console**
 
-**To exit a container using -i you must `docker kill <containerid>`. For example, to kill everything, `docker ps | xargs docker kill`.**
+**To exit a container using -i you must `PodMan kill <containerid>`. For example, to kill everything, `PodMan ps | xargs PodMan kill`.**
 
 Native QEMU VNC example
 
 ```bash
-docker run -i \
+PodMan run -i \
     --device /dev/kvm \
     -p 50922:10022 \
     -p 5999:5999 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
     -e EXTRA="-display none -vnc 0.0.0.0:99,password=on" \
-    sickcodes/docker-osx:big-sur
+    bphd/PodMan-osx:big-sur
 
-# type `change vnc password myvncusername` into the docker terminal and set a password
+# type `change vnc password myvncusername` into the PodMan terminal and set a password
 # connect to localhost:5999 using VNC
 # qemu 6 seems to require a username for vnc now
 ```
@@ -1725,17 +1725,17 @@ Add the following line:
 
 `-e EXTRA="-display none -vnc 0.0.0.0:99,password=on"`
 
-In the Docker terminal, press `enter` until you see `(qemu)`.
+In the PodMan terminal, press `enter` until you see `(qemu)`.
 
 Type `change vnc password someusername`
 
 Enter a password for your new vnc username^.
 
-You also need the container IP: `docker inspect <containerid> | jq -r '.[0].NetworkSettings.IPAddress'`
+You also need the container IP: `PodMan inspect <containerid> | jq -r '.[0].NetworkSettings.IPAddress'`
 
 Or `ip n` will usually show the container IP first.
 
-Now VNC connects using the Docker container IP, for example `172.17.0.2:5999`
+Now VNC connects using the PodMan container IP, for example `172.17.0.2:5999`
 
 Remote VNC over SSH: `ssh -N root@1.1.1.1 -L  5999:172.17.0.2:5999`, where `1.1.1.1` is your remote server IP and `172.17.0.2` is your LAN container IP.
 
@@ -1748,7 +1748,7 @@ Optionally, you can enable the SPICE protocol, which allows use of `remote-viewe
 Note: `-disable-ticketing` will allow unauthenticated access to the VM. See the [spice manual](https://www.spice-space.org/spice-user-manual.html) for help setting up authenticated access ("Ticketing").
 
 ```bash
-  docker run \
+  PodMan run \
     --device /dev/kvm \
     -p 3001:3001 \
     -p 50922:10022 \
@@ -1766,11 +1766,11 @@ Then simply do `remote-viewer spice://localhost:3001` and add `--spice-debug` fo
 # To do this, run the following commands
 
 # make note of your container id
-docker ps --all
-docker commit containerid newImageName
+PodMan ps --all
+PodMan commit containerid newImageName
 
 # To run this image do the following
-docker run \
+PodMan run \
     --device /dev/kvm \
     --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -1778,31 +1778,31 @@ docker run \
 ```
 
 ```bash
-docker pull sickcodes/docker-osx:auto
+PodMan pull bphd/PodMan-osx:auto
 
 # boot directly into a real OS X shell with no display (Xvfb) [HEADLESS]
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     -p 50922:10022 \
-    sickcodes/docker-osx:auto
+    bphd/PodMan-osx:auto
 
 # username is user
 # passsword is alpine
 # Wait 2-3 minutes until you drop into the shell.
 ```
 
-#### Run the original version of Docker-OSX
+#### Run the original version of PodMan-OSX
 
 ```bash
 
-docker pull sickcodes/docker-osx:latest
+PodMan pull bphd/PodMan-osx:latest
 
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
-    sickcodes/docker-osx:latest
+    bphd/PodMan-osx:latest
 
 # press CTRL + G if your mouse gets stuck
 # scroll down to troubleshooting if you have problems
@@ -1812,13 +1812,13 @@ docker run -it \
 #### Run but enable SSH in OS X (Original Version)!
 
 ```bash
-docker run -it \
+PodMan run -it \
     --device /dev/kvm \
     --device /dev/snd \
     -p 50922:10022 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e "DISPLAY=${DISPLAY:-:0.0}" \
-    sickcodes/docker-osx:latest
+    bphd/PodMan-osx:latest
 
 # turn on SSH after you've installed OS X in the "Sharing" settings.
 ssh user@localhost -p 50922
@@ -1832,17 +1832,17 @@ Old machines:
 
 ```bash
 # find your containerID
-docker ps
+PodMan ps
 
 # move the no picker script on top of the Launch script
 # NEW CONTAINERS
-docker exec containerID mv ./Launch-nopicker.sh ./Launch.sh
+PodMan exec containerID mv ./Launch-nopicker.sh ./Launch.sh
 
 # VNC-VERSION-CONTAINER
-docker exec containerID mv ./Launch-nopicker.sh ./Launch_custom.sh
+PodMan exec containerID mv ./Launch-nopicker.sh ./Launch_custom.sh
 
 # LEGACY CONTAINERS
-docker exec containerID bash -c "grep -v InstallMedia ./Launch.sh > ./Launch-nopicker.sh
+PodMan exec containerID bash -c "grep -v InstallMedia ./Launch.sh > ./Launch-nopicker.sh
 chmod +x ./Launch-nopicker.sh
 sed -i -e s/OpenCore\.qcow2/OpenCore\-nopicker\.qcow2/ ./Launch-nopicker.sh
 "
@@ -1852,7 +1852,7 @@ sed -i -e s/OpenCore\.qcow2/OpenCore\-nopicker\.qcow2/ ./Launch-nopicker.sh
 
 ### The big-sur image starts slowly after installation. Is this expected?
 
-Automatic updates are still on in the container's settings. You may wish to turn them off. [We have future plans for development around this.](https://github.com/sickcodes/Docker-OSX/issues/227)
+Automatic updates are still on in the container's settings. You may wish to turn them off. [We have future plans for development around this.](https://github.com/bphd/PodMan-OSX/issues/227)
 
 ### What is `${DISPLAY:-:0.0}`?
 
@@ -1869,7 +1869,7 @@ Automatic updates are still on in the container's settings. You may wish to turn
 
 You can also use `${variable:=fallback}` to set that variable (in your current terminal).
 
-In Docker-OSX, we assume, `:0.0` is your default `$DISPLAY` variable.
+In PodMan-OSX, we assume, `:0.0` is your default `$DISPLAY` variable.
 
 You can see what yours is
 
@@ -1881,17 +1881,17 @@ That way, `${DISPLAY:-:0.0}` will use whatever variable your X11 server has set 
 
 ### What is `-v /tmp/.X11-unix:/tmp/.X11-unix`?
 
-`-v` is a Docker command-line option that lets you pass a volume to the container.
+`-v` is a PodMan command-line option that lets you pass a volume to the container.
 
-The directory that we are letting the Docker container use is a X server display socket.
+The directory that we are letting the PodMan container use is a X server display socket.
 
 `/tmp/.X11-unix`
 
-If we let the Docker container use the same display socket as our own environment, then any applications you run inside the Docker container will show up on your screen too! [https://www.x.org/archive/X11R6.8.0/doc/RELNOTES5.html](https://www.x.org/archive/X11R6.8.0/doc/RELNOTES5.html)
+If we let the PodMan container use the same display socket as our own environment, then any applications you run inside the PodMan container will show up on your screen too! [https://www.x.org/archive/X11R6.8.0/doc/RELNOTES5.html](https://www.x.org/archive/X11R6.8.0/doc/RELNOTES5.html)
 
 ### ALSA errors on startup or container creation
 
 You may when initialising or booting into a container see errors from the `(qemu)` console of the following form: 
 `ALSA lib blahblahblah: (function name) returned error: no such file or directory`. These are more or less expected. As long as you are able to boot into the container and everything is working, no reason to worry about these.
 
-See also: [here](https://github.com/sickcodes/Docker-OSX/issues/174).
+See also: [here](https://github.com/bphd/PodMan-OSX/issues/174).

@@ -89,7 +89,7 @@ function fish_fini() {
 	fish umount-all
 }
 
-# disabled by @sickcodes to allow unattended image overwrites
+# disabled by @bphd to allow unattended image overwrites
 ######################################################################
 # sanity checks
 

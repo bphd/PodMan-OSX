@@ -1,33 +1,33 @@
-#!/usr/bin/docker
-#     ____             __             ____  ______  __
-#    / __ \____  _____/ /_____  _____/ __ \/ ___/ |/ /
-#   / / / / __ \/ ___/ //_/ _ \/ ___/ / / /\__ \|   /
-#  / /_/ / /_/ / /__/ ,< /  __/ /  / /_/ /___/ /   |
-# /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_| [MONTEREY]
+#!/usr/bin/PodMan
+#     ____            ____  ___            ____  ______  __
+#    / __ \____  ____/ /  |/  /___ _____  / __ \/ ___/ |/ /
+#   / /_/ / __ \/ __  / /|_/ / __ `/ __ \/ / / /\__ \|   / 
+#  / ____/ /_/ / /_/ / /  / / /_/ / / / / /_/ /___/ /   |  
+# /_/    \____/\__,_/_/  /_/\__,_/_/ /_/\____//____/_/|_| [MONTEREY]
 #
-# Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Title:            PodMan-OSX (Mac on PodMan)
+# Author:           bphd https://twitter.com/bphd
 # Version:          6.0
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/bphd/PodMan-OSX
+# Website:          https://bphd
 # 
 # Notes:            Uses a self-hosted BaseSystem.img from a USB installer.
 #                   If you want to DIY, use https://github.com/corpnewt/gibMacOS
 #                   Set seed as developer, and install the Install Assistant on Big Sur
 #                   Burn to a USB, and pull out BaseSystem.img
-#                   Or download from https://images.sick.codes/BaseSystem_Monterey.dmg
+#                   Or download from https://images.bphd/BaseSystem_Monterey.dmg
 # 
 
-FROM sickcodes/docker-osx
+FROM bphd/PodMan-osx
 
-LABEL maintainer='https://twitter.com/sickcodes <https://sick.codes>'
+LABEL maintainer='https://twitter.com/bphd <https://bphd>'
 
 SHELL ["/bin/bash", "-c"]
 
 # change disk size here or add during build, e.g. --build-arg VERSION=10.14.5 --build-arg SIZE=50G
 ARG SIZE=200G
-ARG BASE_SYSTEM='https://images.sick.codes/BaseSystem_Monterey.dmg'
+ARG BASE_SYSTEM='https://images.bphd/BaseSystem_Monterey.dmg'
 
 WORKDIR /home/arch/OSX-KVM
 
@@ -52,7 +52,7 @@ ENV LIBGUESTFS_PACKAGE_URL=https://archive.archlinux.org/packages/l/libguestfs/l
 
 ARG LINUX=true
 
-# required to use libguestfs inside a docker container, to create bootdisks for docker-osx on-the-fly
+# required to use libguestfs inside a PodMan container, to create bootdisks for PodMan-osx on-the-fly
 RUN if [[ "${LINUX}" == true ]]; then \
         sudo pacman -U "${KERNEL_PACKAGE_URL}" --noconfirm \
         ; sudo pacman -U "${LIBGUESTFS_PACKAGE_URL}" --noconfirm \
@@ -67,9 +67,9 @@ RUN if [[ "${LINUX}" == true ]]; then \
 
 # optional --build-arg to change branches for testing
 ARG BRANCH=master
-ARG REPO='https://github.com/sickcodes/Docker-OSX.git'
+ARG REPO='https://github.com/bphd/PodMan-OSX.git'
 # RUN git clone --recurse-submodules --depth 1 --branch "${BRANCH}" "${REPO}"
-RUN rm -rf ./Docker-OSX \
+RUN rm -rf ./PodMan-OSX \
     && git clone --recurse-submodules --depth 1 --branch "${BRANCH}" "${REPO}"
 
 RUN touch Launch.sh \
@@ -105,7 +105,7 @@ RUN touch Launch.sh \
     && tee -a Launch.sh <<< '-vga vmware \' \
     && tee -a Launch.sh <<< '${EXTRA:-}'
 
-# docker exec containerid mv ./Launch-nopicker.sh ./Launch.sh
+# PodMan exec containerid mv ./Launch-nopicker.sh ./Launch.sh
 # This is now a legacy command.
 # You can use -e BOOTDISK=/bootdisk with -v ./bootdisk.img:/bootdisk
 RUN grep -v InstallMedia ./Launch.sh > ./Launch-nopicker.sh \
@@ -174,7 +174,7 @@ ENV IMAGE_FORMAT=qcow2
 
 ENV KVM='accel=kvm:tcg'
 
-ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist"
+ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist"
 
 # ENV NETWORKING=e1000-82545em
 ENV NETWORKING=vmxnet3
@@ -225,7 +225,7 @@ CMD sudo touch /dev/kvm /dev/snd "${IMAGE_PATH}" "${BOOTDISK}" "${ENV}" 2>/dev/n
     ; } \
     || export BOOTDISK="${BOOTDISK:=/home/arch/OSX-KVM/OpenCore/OpenCore.qcow2}" \
     ; [[ "${GENERATE_UNIQUE}" == true ]] && { \
-        ./Docker-OSX/osx-serial-generator/generate-unique-machine-values.sh \
+        ./PodMan-OSX/osx-serial-generator/generate-unique-machine-values.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --count 1 \
             --tsv ./serial.tsv \
@@ -237,7 +237,7 @@ CMD sudo touch /dev/kvm /dev/snd "${IMAGE_PATH}" "${BOOTDISK}" "${ENV}" 2>/dev/n
     || exit 1 ; } \
     ; [[ "${GENERATE_SPECIFIC}" == true ]] && { \
             source "${ENV:=/env}" 2>/dev/null \
-            ; ./Docker-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
+            ; ./PodMan-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --model "${DEVICE_MODEL}" \
             --serial "${SERIAL}" \
@@ -251,5 +251,5 @@ CMD sudo touch /dev/kvm /dev/snd "${IMAGE_PATH}" "${BOOTDISK}" "${ENV}" 2>/dev/n
     ; ./enable-ssh.sh && /bin/bash -c ./Launch.sh
 
 # virt-manager mode: eta son
-# CMD virsh define <(envsubst < Docker-OSX.xml) && virt-manager || virt-manager
+# CMD virsh define <(envsubst < PodMan-OSX.xml) && virt-manager || virt-manager
 # CMD virsh define <(envsubst < macOS-libvirt-Catalina.xml) && virt-manager || virt-manager

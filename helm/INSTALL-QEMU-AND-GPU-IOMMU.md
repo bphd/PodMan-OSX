@@ -1,6 +1,6 @@
-# Install macOS Docker Virtualization
+# Install macOS PodMan Virtualization
 ## Setup
-This walks through setting up QEMU virtualization for running macOS in Docker & Kubernetes
+This walks through setting up QEMU virtualization for running macOS in PodMan & Kubernetes
 
 Please note, this guide assumes the host operation system is running Centos 7 (or ClearOS 7 more specifically). These commands can mostly be transferred to other distros, but there are a few areas that need commands (i.e. updating )
 
@@ -150,7 +150,7 @@ virsh -c qemu:///system version --daemon
     @kvm            hard    memlock         unlimited
     ```
 
-    Append the following to `/etc/docker/daemon.json`:
+    Append the following to `/etc/PodMan/daemon.json`:
 
     ```
     {
@@ -240,7 +240,7 @@ After rebooting, check on the gpu with `lspci` utilizing your gpu hardware id:
 I.E.
 
 ```
-[root@server docker-docker-osx]# lspci -vvv -s 09:00.0
+[root@server PodMan-PodMan-osx]# lspci -vvv -s 09:00.0
 09:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] (rev c7) (prog-if 00 [VGA controller])
         Subsystem: Advanced Micro Devices, Inc. [AMD/ATI] Radeon RX 480
         Physical Slot: 5

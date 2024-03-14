@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "docker-osx.fullname" . }}
+  name: {{ include "PodMan-osx.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "docker-osx.name" . }}
-    helm.sh/chart: {{ include "docker-osx.chart" . }}
+    app.kubernetes.io/name: {{ include "PodMan-osx.name" . }}
+    helm.sh/chart: {{ include "PodMan-osx.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "docker-osx.name" . }}
+      app.kubernetes.io/name: {{ include "PodMan-osx.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "docker-osx.name" . }}
+        app.kubernetes.io/name: {{ include "PodMan-osx.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
@@ -99,7 +99,7 @@ spec:
       volumes:
       - name: boot-components
         configMap: 
-          name: {{ template "docker-osx.fullname" . }}-boot-components
+          name: {{ template "PodMan-osx.fullname" . }}-boot-components
           items:
           - key: config.plist
             path: config.plist
@@ -137,7 +137,7 @@ spec:
       {{- if .Values.persistence.data.enabled }}
       - name: data
         persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.data.existingClaim }}{{ .Values.persistence.data.existingClaim }}{{- else }}{{ template "docker-osx.fullname" . }}-data{{- end }}
+          claimName: {{ if .Values.persistence.data.existingClaim }}{{ .Values.persistence.data.existingClaim }}{{- else }}{{ template "PodMan-osx.fullname" . }}-data{{- end }}
       {{- else }}
           emptyDir: {}
       {{- end }}

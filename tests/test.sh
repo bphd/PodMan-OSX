@@ -1,16 +1,16 @@
 #!/usr/bin/bash
-#     ____             __             ____  ______  __
-#    / __ \____  _____/ /_____  _____/ __ \/ ___/ |/ /
-#   / / / / __ \/ ___/ //_/ _ \/ ___/ / / /\__ \|   /
-#  / /_/ / /_/ / /__/ ,< /  __/ /  / /_/ /___/ /   |
-# /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_| TESTS
+#     ____            ____  ___            ____  ______  __
+#    / __ \____  ____/ /  |/  /___ _____  / __ \/ ___/ |/ /
+#   / /_/ / __ \/ __  / /|_/ / __ `/ __ \/ / / /\__ \|   / 
+#  / ____/ /_/ / /_/ / /  / / /_/ / / / / /_/ /___/ /   |  
+# /_/    \____/\__,_/_/  /_/\__,_/_/ /_/\____//____/_/|_| TESTS
 #
-# Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Title:            PodMan-OSX (Mac on PodMan)
+# Author:           bphd https://twitter.com/bphd
 # Version:          4.2
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/bphd/PodMan-OSX
+# Website:          https://bphd
 #
 # Status:           Used internally to auto build, run and test images on DO.
 # 
@@ -21,13 +21,13 @@ General options:
     --branch, -b <string>               Git branch, default is master
     --repo, -r <url>                    Alternative link to build
     --mirror-country, -m <SS>           Two letter country code for Arch mirrors
-    --docker-username, -u <string>      Docker hub username
-    --docker-password, -p <string>      Docker hub password
+    --PodMan-username, -u <string>      PodMan hub username
+    --PodMan-password, -p <string>      PodMan hub password
     --vnc-password, -v <string>         Choose a VNC passwd.
 
 Flags
     --no-cache, -n                      Enable --no-cache (default already)
-    --no-no-cache, -nn                  Disable --no-cache docker builds
+    --no-no-cache, -nn                  Disable --no-cache PodMan builds
     --help, -h, help                    Display this help and exit
 "
 
@@ -78,21 +78,21 @@ while (( "$#" )); do
                 shift
                 shift
             ;;
-    --docker-username=* | -u=* )
-                export DOCKER_USERNAME="${1#*=}"
+    --PodMan-username=* | -u=* )
+                export PodMan_USERNAME="${1#*=}"
                 shift
             ;;
-    --docker-username* | -u* )
-                export DOCKER_USERNAME="${2}"
+    --PodMan-username* | -u* )
+                export PodMan_USERNAME="${2}"
                 shift
                 shift
             ;;
-    --docker-password=* | -p=* )
-                export DOCKER_PASSWORD="${1#*=}"
+    --PodMan-password=* | -p=* )
+                export PodMan_PASSWORD="${1#*=}"
                 shift
             ;;
-    --docker-password* | -p* )
-                export DOCKER_PASSWORD="${2}"
+    --PodMan-password* | -p* )
+                export PodMan_PASSWORD="${2}"
                 shift
                 shift
             ;;
@@ -113,22 +113,22 @@ while (( "$#" )); do
 done
 
 BRANCH="${BRANCH:=master}"
-REPO="${REPO:=https://github.com/sickcodes/Docker-OSX.git}"
+REPO="${REPO:=https://github.com/bphd/PodMan-OSX.git}"
 VNC_PASSWORD="${VNC_PASSWORD:=testing}"
 MIRROR_COUNTRY="${MIRROR_COUNTRY:=US}"
 NO_CACHE="${NO_CACHE:=--no-cache}"
 
 
 TEST_BUILDS=(
-    'docker-osx:naked'
-    'docker-osx:naked-auto'
-    'docker-osx:auto'
+    'PodMan-osx:naked'
+    'PodMan-osx:naked-auto'
+    'PodMan-osx:auto'
 )
 
 TEST_BUILDS=(
-    'docker-osx:naked'
-    'docker-osx:naked-auto'
-    'docker-osx:auto'
+    'PodMan-osx:naked'
+    'PodMan-osx:naked-auto'
+    'PodMan-osx:auto'
 )
 
 VERSION_BUILDS=(
@@ -144,7 +144,7 @@ warning () {
     clear
     for j in {15..1}; do 
         echo "############# WARNING: THIS SCRIPT IS NOT INTENDED FOR USE BY ################"
-        echo "############# IT IS USED BY THE PROJECT TO BUILD AND PUSH TO DOCKERHUB #######"
+        echo "############# IT IS USED BY THE PROJECT TO BUILD AND PUSH TO PodManHUB #######"
         echo ""
         echo "                     Press Ctrl C to stop.       "
         MAX_COLS=$((${COLUMNS}/2))
@@ -154,17 +154,17 @@ warning () {
     done
 }
 
-install_docker () {
-    apt remove docker docker-engine docker.io containerd runc -y \
+install_PodMan () {
+    apt remove PodMan PodMan-engine PodMan.io containerd runc -y \
     ; apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y \
-    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  apt-key add - \
+    && curl -fsSL https://download.PodMan.com/linux/ubuntu/gpg |  apt-key add - \
     && apt-key fingerprint 0EBFCD88 \
-    && > /etc/apt/sources.list.d/docker.list \
-    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+    && > /etc/apt/sources.list.d/PodMan.list \
+    && add-apt-repository "deb [arch=amd64] https://download.PodMan.com/linux/ubuntu $(lsb_release -cs) stable" \
     && apt update -y \
-    && apt install docker-ce docker-ce-cli containerd.io -y \
-    && usermod -aG docker "${USER}" \
-    && su hook docker run --rm hello-world
+    && apt install PodMan-ce PodMan-ce-cli containerd.io -y \
+    && usermod -aG PodMan "${USER}" \
+    && su hook PodMan run --rm hello-world
 }
 
 install_vnc () {
@@ -223,73 +223,73 @@ enable_kvm () {
 }
 
 clone_repo () {
-    git clone --branch="${1}" "${2}" Docker-OSX
+    git clone --branch="${1}" "${2}" PodMan-OSX
 }
 
-docker-osx:naked () {
-    docker build ${NO_CACHE} \
+PodMan-osx:naked () {
+    PodMan build ${NO_CACHE} \
         --squash \
         --build-arg RANKMIRRORS=true \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile.naked \
-        -t docker-osx:naked .
-    docker tag docker-osx:naked sickcodes/docker-osx:naked
+        -f ./PodManfile.naked \
+        -t PodMan-osx:naked .
+    PodMan tag PodMan-osx:naked bphd/PodMan-osx:naked
 }
 
-docker-osx:naked-auto () {
-    docker build ${NO_CACHE} \
+PodMan-osx:naked-auto () {
+    PodMan build ${NO_CACHE} \
         --squash \
         --build-arg RANKMIRRORS=true \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile.naked-auto \
-        -t docker-osx:naked-auto .
-    docker tag docker-osx:naked-auto sickcodes/docker-osx:naked-auto
+        -f ./PodManfile.naked-auto \
+        -t PodMan-osx:naked-auto .
+    PodMan tag PodMan-osx:naked-auto bphd/PodMan-osx:naked-auto
 }
 
-docker-osx:auto () {
-    docker build ${NO_CACHE} \
+PodMan-osx:auto () {
+    PodMan build ${NO_CACHE} \
         --build-arg RANKMIRRORS=true \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile.auto \
-        -t docker-osx:auto .
-    docker tag docker-osx:auto sickcodes/docker-osx:auto
+        -f ./PodManfile.auto \
+        -t PodMan-osx:auto .
+    PodMan tag PodMan-osx:auto bphd/PodMan-osx:auto
 }
 
-# docker-osx:auto-big-sur () {
-#     docker build ${NO_CACHE} \
+# PodMan-osx:auto-big-sur () {
+#     PodMan build ${NO_CACHE} \
 #         --build-arg RANKMIRRORS=true \
 #         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-#         --build-arg IMAGE_URL='https://images.sick.codes/mac_hdd_ng_auto_big_sur.img' \
-#         -f ./Dockerfile.auto \
-#         -t docker-osx:auto-big-sur .
-#     docker tag docker-osx:auto-big-sur sickcodes/docker-osx:auto-big-sur
+#         --build-arg IMAGE_URL='https://images.bphd/mac_hdd_ng_auto_big_sur.img' \
+#         -f ./PodManfile.auto \
+#         -t PodMan-osx:auto-big-sur .
+#     PodMan tag PodMan-osx:auto-big-sur bphd/PodMan-osx:auto-big-sur
 # }
 
-docker-osx:version () {
+PodMan-osx:version () {
     SHORTNAME="${1}"
-    docker build ${NO_CACHE} \
+    PodMan build ${NO_CACHE} \
         --build-arg BRANCH="${BRANCH}" \
         --build-arg RANKMIRRORS=true \
         --build-arg SHORTNAME="${SHORTNAME}" \
         --build-arg MIRROR_COUNTRY="${MIRROR_COUNTRY}" \
-        -f ./Dockerfile \
-        -t "docker-osx:${SHORTNAME}" .
-    docker tag "docker-osx:${SHORTNAME}" "sickcodes/docker-osx:${SHORTNAME}"
+        -f ./PodManfile \
+        -t "PodMan-osx:${SHORTNAME}" .
+    PodMan tag "PodMan-osx:${SHORTNAME}" "bphd/PodMan-osx:${SHORTNAME}"
 }
 
-reset_docker_hard () {
+reset_PodMan_hard () {
 
-    tee /etc/docker/daemon.json <<'EOF'
+    tee /etc/PodMan/daemon.json <<'EOF'
 {
     "experimental": true
 }
 EOF
-    systemctl disable --now docker
-    systemctl disable --now docker.socket
-    systemctl stop docker
-    systemctl stop docker.socket
-    rm -rf /var/lib/docker
-    systemctl enable --now docker
+    systemctl disable --now PodMan
+    systemctl disable --now PodMan.socket
+    systemctl stop PodMan
+    systemctl stop PodMan.socket
+    rm -rf /var/lib/PodMan
+    systemctl enable --now PodMan
 }
 
 warning
@@ -303,7 +303,7 @@ ln -snf "/usr/share/zoneinfo/${TZ}" /etc/localtime
 tee -a /etc/timezone <<< "${TZ}"
 apt update -y
 apt-get install keyboard-configuration -y
-docker -v | grep '\ 20\.\|\ 19\.' || install_docker
+PodMan -v | grep '\ 20\.\|\ 19\.' || install_PodMan
 yes | apt install -y --no-install-recommends tzdata -y
 install_scrotcat
 yes | install_vnc
@@ -312,17 +312,17 @@ apt install xvfb -y
 start_xvfb
 # start_vnc
 enable_kvm
-reset_docker_hard
+reset_PodMan_hard
 # echo killall Xvfb
 clone_repo "${BRANCH}" "${REPO}"
-cd ./Docker-OSX
+cd ./PodMan-OSX
 git pull
 
 for SHORTNAME in "${VERSION_BUILDS[@]}"; do
-    docker-osx:version "${SHORTNAME}"
+    PodMan-osx:version "${SHORTNAME}"
 done
 
-docker tag docker-osx:catalina sickcodes/docker-osx:latest
+PodMan tag PodMan-osx:catalina bphd/PodMan-osx:latest
 
 for TEST_BUILD in "${TEST_BUILDS[@]}"; do
     "${TEST_BUILD}"
@@ -331,15 +331,15 @@ done
 # boot each image and test
 bash ./tests/boot-images.sh || exit 1
 
-if [[ "${DOCKER_USERNAME}" ]] && [[ "${DOCKER_PASSWORD}" ]]; then
-    docker login --username "${DOCKER_USERNAME}" --password "${DOCKER_PASSWORD}" \
+if [[ "${PodMan_USERNAME}" ]] && [[ "${PodMan_PASSWORD}" ]]; then
+    PodMan login --username "${PodMan_USERNAME}" --password "${PodMan_PASSWORD}" \
         && for SHORTNAME in "${VERSION_BUILDS[@]}"; do
-            docker push "sickcodes/docker-osx:${SHORTNAME}"
+            PodMan push "bphd/PodMan-osx:${SHORTNAME}"
         done \
         && touch PUSHED
-    docker push sickcodes/docker-osx:naked
-    docker push sickcodes/docker-osx:auto
-    docker push sickcodes/docker-osx:naked-auto
+    PodMan push bphd/PodMan-osx:naked
+    PodMan push bphd/PodMan-osx:auto
+    PodMan push bphd/PodMan-osx:naked-auto
 
 fi
 

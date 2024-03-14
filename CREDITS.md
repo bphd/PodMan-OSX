@@ -16,7 +16,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@GreeFine](https://github.com/GreeFine) - Readme Typo #9 
 
-[@parasquid](https://github.com/parasquid) - Docker compose file
+[@parasquid](https://github.com/parasquid) - PodMan compose file
 
 [@matusnovak](https://github.com/matusnovak) - Kill badly terminated old vnc session before vnc starts and fix gtk initialization failed #31
 
@@ -24,9 +24,9 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@qcasey](https://github.com/qcasey) - Removed unnecessary yay in Remove yay dependancy #40 
 
-[@tlierdotfr](https://github.com/tlierdotfr) - Reduce number of layers in Dockerfile 
+[@tlierdotfr](https://github.com/tlierdotfr) - Reduce number of layers in PodManfile 
 
-[@Julioevm](https://github.com/Julioevm) - Update docker-compose.yml #57
+[@Julioevm](https://github.com/Julioevm) - Update PodMan-compose.yml #57
 
 [@jviotti](https://github.com/jviotti) - Auto-boot thru ShowPicker
 
@@ -34,7 +34,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@hoantp](https://github.com/hoantp) - Initialized TigerVNC 1.11.0 fix
 
-[@jimdigriz](https://github.com/jimdigriz) - Epic fixes: image size, shellisms, fallback2kvm, unprivileged mode https://github.com/sickcodes/Docker-OSX/pull/82
+[@jimdigriz](https://github.com/jimdigriz) - Epic fixes: image size, shellisms, fallback2kvm, unprivileged mode https://github.com/bphd/PodMan-OSX/pull/82
 
 [@NickZhouNan](https://github.com/NickZhouNan) - Bug fix with changed WORKDIR
 
@@ -44,15 +44,15 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@AdamMomen](https://github.com/AdamMomen) - Fixed automatic boot vnc-version container instructions for better usablility
 
-[@PeterDaveHello](https://github.com/PeterDaveHello) - Simplify .ssh directory setup process in Dockerfile #111
+[@PeterDaveHello](https://github.com/PeterDaveHello) - Simplify .ssh directory setup process in PodManfile #111
 
 [@PeterDaveHello](https://github.com/PeterDaveHello) - Reduce image size by setting git clone depth #110
 
-[@PeterDaveHello](https://github.com/PeterDaveHello) - Reduce Dockerfile instructions and Docker image layers #112
+[@PeterDaveHello](https://github.com/PeterDaveHello) - Reduce PodManfile instructions and PodMan image layers #112
 
 [@weskerfoot](https://github.com/weskerfoot) Docs updates: usb passthrough, headless mode, disk space reduction guide #113
 
-[@PeterDaveHello](https://github.com/PeterDaveHello) - Improve Dockerfile #121 
+[@PeterDaveHello](https://github.com/PeterDaveHello) - Improve PodManfile #121 
 
 [@cephasara](https://github.com/cephasara) - Add helm chart #124 
 
@@ -62,7 +62,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@cephasara](https://github.com/cephasara) - Fix helm installation failure and cleanup values organization #134
 
-[@prometheas](https://github.com/prometheas) - docs: fix broken multi-line docker command #140 
+[@prometheas](https://github.com/prometheas) - docs: fix broken multi-line PodMan command #140 
 
 [@MrBenFTW](https://github.com/MrBenFTW) - Tempfix for arch #150
 
@@ -80,7 +80,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@kaoudis](https://github.com/kaoudis) README / troubleshooting docs improvements #235
 
-[@a10kiloham](https://github.com/a10kiloham) - Dockerfile for :naked image with VNC support #245 
+[@a10kiloham](https://github.com/a10kiloham) - PodManfile for :naked image with VNC support #245 
 
 [@a10kiloham](https://github.com/a10kiloham) - Adding Bluebubbles as an example use case #250 
 
@@ -98,7 +98,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@cybik](https://github.com/cybik) Spice fix #337
 
-[@Silfalion](https://github.com/Silfalion) - [https://github.com/Silfalion/Iphone_docker_osx_passthrough](https://github.com/Silfalion/Iphone_docker_osx_passthrough)
+[@Silfalion](https://github.com/Silfalion) - [https://github.com/Silfalion/Iphone_PodMan_osx_passthrough](https://github.com/Silfalion/Iphone_PodMan_osx_passthrough)
 
 [@chirag350](https://github.com/chirag350) use LABEL instead of MAINTAINER since MAINTAINER is deprecated #352 
 
@@ -108,7 +108,7 @@ This project now uses the fantastic OpenCore bootloader from the community OpenC
 
 [@cameronsteele](https://github.com/cameronsteele) fix Big Sur build example #378 
 
-[@eggplants](https://github.com/eggplants) Fix command to launch sickcodes/docker-osx:auto #366 
+[@eggplants](https://github.com/eggplants) Fix command to launch bphd/PodMan-osx:auto #366 
 
 [@martinmullins](https://github.com/martinmullins) Notes for mounting an NFS folder from a linux host #392
 

@@ -1,37 +1,37 @@
-#!/usr/bin/docker
-#     ____             __             ____  ______  __
-#    / __ \____  _____/ /_____  _____/ __ \/ ___/ |/ /
-#   / / / / __ \/ ___/ //_/ _ \/ ___/ / / /\__ \|   /
-#  / /_/ / /_/ / /__/ ,< /  __/ /  / /_/ /___/ /   |
-# /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_|
+#!/usr/bin/PodMan
+#     ____            ____  ___            ____  ______  __
+#    / __ \____  ____/ /  |/  /___ _____  / __ \/ ___/ |/ /
+#   / /_/ / __ \/ __  / /|_/ / __ `/ __ \/ / / /\__ \|   / 
+#  / ____/ /_/ / /_/ / /  / / /_/ / / / / /_/ /___/ /   |  
+# /_/    \____/\__,_/_/  /_/\__,_/_/ /_/\____//____/_/|_|
 #
-# Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Title:            PodMan-OSX (Mac on PodMan)
+# Author:           bphd https://twitter.com/bphd
 # Version:          6.0
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/bphd/PodMan-OSX
+# Website:          https://bphd
 #
 # All credits for OSX-KVM and the rest at @Kholia's repo: https://github.com/kholia/osx-kvm
 # OpenCore support go to https://github.com/Leoyzen/KVM-Opencore
 # and https://github.com/thenickdude/KVM-Opencore/
 #
-# This Dockerfile automates the installation of Docker-OSX
+# This PodManfile automates the installation of PodMan-OSX
 # It will build a 200GB container. You can change the size using build arguments.
-# This Dockerfile builds on top of the work done by Dhiru Kholia, and many others.
+# This PodManfile builds on top of the work done by Dhiru Kholia, and many others.
 #
 # Build:
 #
-#       docker build -t docker-osx .
-#       docker build -t docker-osx --build-arg VERSION=10.15.5 --build-arg SIZE=200G .
+#       PodMan build -t PodMan-osx .
+#       PodMan build -t PodMan-osx --build-arg VERSION=10.15.5 --build-arg SIZE=200G .
 #
 # Basic Run:
 #
-#       docker run --device /dev/kvm --device /dev/snd -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" sickcodes/docker-osx:latest
+#       PodMan run --device /dev/kvm --device /dev/snd -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" bphd/PodMan-osx:latest
 #
 # Run with SSH:
 #
-#       docker run --device /dev/kvm --device /dev/snd -e RAM=6 -p 50922:10022 -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" sickcodes/docker-osx:latest
+#       PodMan run --device /dev/kvm --device /dev/snd -e RAM=6 -p 50922:10022 -v /tmp/.X11-unix:/tmp/.X11-unix -e "DISPLAY=${DISPLAY:-:0.0}" bphd/PodMan-osx:latest
 #       # ssh fullname@localhost -p 50922
 #
 # Optargs:
@@ -48,11 +48,11 @@
 #
 # Extra QEMU args:
 #
-#       docker run ... -e EXTRA="-usb -device usb-host,hostbus=1,hostaddr=8" ...
+#       PodMan run ... -e EXTRA="-usb -device usb-host,hostbus=1,hostaddr=8" ...
 #       # you will also need to pass the device to the container
 
 FROM archlinux:base-devel
-LABEL maintainer='https://twitter.com/sickcodes <https://sick.codes>'
+LABEL maintainer='https://twitter.com/bphd <https://bphd>'
 
 SHELL ["/bin/bash", "-c"]
 
@@ -78,7 +78,7 @@ RUN pacman -Sy archlinux-keyring --noconfirm \
 
 RUN if [[ "${RANKMIRRORS}" ]]; then \
         { pacman -Sy wget --noconfirm || pacman -Syu wget --noconfirm ; } \
-        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/sickcodes/Docker-OSX/${BRANCH:=master}/rankmirrors" \
+        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/bphd/PodMan-OSX/${BRANCH:=master}/rankmirrors" \
         ; wget -O- "https://www.archlinux.org/mirrorlist/?country=${MIRROR_COUNTRY:-US}&protocol=https&use_mirror_status=on" \
         | sed -e 's/^#Server/Server/' -e '/^#/d' \
         | head -n "$((${MIRROR_COUNT:-10}+1))" \
@@ -92,7 +92,7 @@ RUN tee -a /etc/pacman.d/gnupg/gpg.conf <<< 'keyserver hkp://keyserver.ubuntu.co
     && tee -a /etc/pacman.d/gnupg/gpg.conf <<< 'keyserver hkps://keys.openpgp.org' \
     && tee -a /etc/pacman.d/gnupg/gpg.conf <<< 'keyserver hkps://keys.mailvelope.com'
 
-# This fails on hub.docker.com, useful for debugging in cloud
+# This fails on hub.PodMan.com, useful for debugging in cloud
 # RUN [[ $(egrep -c '(svm|vmx)' /proc/cpuinfo) -gt 0 ]] || { echo KVM not possible on this host && exit 1; }
 
 # RUN tee -a /etc/pacman.conf <<< '[community-testing]' \
@@ -129,7 +129,7 @@ USER arch
 RUN git clone --recurse-submodules --depth 1 https://github.com/kholia/OSX-KVM.git /home/arch/OSX-KVM
 
 # enable ssh
-# docker exec .... ./enable-ssh.sh
+# PodMan exec .... ./enable-ssh.sh
 USER arch
 
 WORKDIR /home/arch/OSX-KVM
@@ -171,7 +171,7 @@ RUN sudo tee -a /etc/pacman.conf <<< "SigLevel = ${SIGLEVEL}" \
 
 ARG LINUX=true
 
-# required to use libguestfs inside a docker container, to create bootdisks for docker-osx on-the-fly
+# required to use libguestfs inside a PodMan container, to create bootdisks for PodMan-osx on-the-fly
 RUN if [[ "${LINUX}" == true ]]; then \
         sudo pacman -Syu linux linux-headers archlinux-keyring guestfs-tools mkinitcpio pcre pcre2 --noconfirm \
         && libguestfs-test-tool \
@@ -181,7 +181,7 @@ RUN if [[ "${LINUX}" == true ]]; then \
 
 # optional --build-arg to change branches for testing
 ARG BRANCH=master
-ARG REPO='https://github.com/sickcodes/Docker-OSX.git'
+ARG REPO='https://github.com/bphd/PodMan-OSX.git'
 RUN git clone --recurse-submodules --depth 1 --branch "${BRANCH}" "${REPO}"
 
 RUN touch Launch.sh \
@@ -217,7 +217,7 @@ RUN touch Launch.sh \
     && tee -a Launch.sh <<< '-vga vmware \' \
     && tee -a Launch.sh <<< '${EXTRA:-}'
 
-# docker exec containerid mv ./Launch-nopicker.sh ./Launch.sh
+# PodMan exec containerid mv ./Launch-nopicker.sh ./Launch.sh
 # This is now a legacy command.
 # You can use -e BOOTDISK=/bootdisk with -v ./bootdisk.img:/bootdisk
 
@@ -234,7 +234,7 @@ ENV USER arch
 # These are hardcoded serials for non-iMessage related research
 # Overwritten by using GENERATE_UNIQUE=true
 # Upstream removed nopicker, so we are adding it back in, at build time
-# Once again, this is just for the Docker build so there is a default nopicker image there
+# Once again, this is just for the PodMan build so there is a default nopicker image there
 
 # libguestfs verbose
 ENV LIBGUESTFS_DEBUG=1
@@ -247,12 +247,12 @@ ARG STOCK_UUID=007076A6-F2A2-4461-BBE5-BAD019F8025A
 ARG STOCK_MAC_ADDRESS=00:0A:27:00:00:00
 ARG STOCK_WIDTH=1920
 ARG STOCK_HEIGHT=1080
-ARG STOCK_MASTER_PLIST_URL=https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist
-ARG STOCK_MASTER_PLIST_URL_NOPICKER=https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-nopicker-custom.plist
+ARG STOCK_MASTER_PLIST_URL=https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist
+ARG STOCK_MASTER_PLIST_URL_NOPICKER=https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-nopicker-custom.plist
 ARG STOCK_BOOTDISK=/home/arch/OSX-KVM/OpenCore/OpenCore.qcow2
 ARG STOCK_BOOTDISK_NOPICKER=/home/arch/OSX-KVM/OpenCore/OpenCore-nopicker.qcow2
 
-RUN ./Docker-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
+RUN ./PodMan-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
     --master-plist-url="${STOCK_MASTER_PLIST_URL}" \
     --model "${STOCK_DEVICE_MODEL}" \
     --serial "${STOCK_SERIAL}" \
@@ -264,7 +264,7 @@ RUN ./Docker-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
     --output-bootdisk "${STOCK_BOOTDISK}" || exit 1 \
     ; rm -rf /var/tmp/.guestfs-*
 
-RUN ./Docker-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
+RUN ./PodMan-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
     --master-plist-url="${STOCK_MASTER_PLIST_URL_NOPICKER}" \
     --model "${STOCK_DEVICE_MODEL}" \
     --serial "${STOCK_SERIAL}" \
@@ -315,7 +315,7 @@ ENV IMAGE_FORMAT=qcow2
 
 ENV KVM='accel=kvm:tcg'
 
-ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist"
+ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist"
 
 # ENV NETWORKING=e1000-82545em
 ENV NETWORKING=vmxnet3
@@ -362,7 +362,7 @@ CMD sudo touch /dev/kvm /dev/snd "${IMAGE_PATH}" "${BOOTDISK}" "${ENV}" 2>/dev/n
     ; } \
     || export BOOTDISK="${BOOTDISK:=/home/arch/OSX-KVM/OpenCore/OpenCore.qcow2}" \
     ; [[ "${GENERATE_UNIQUE}" == true ]] && { \
-        ./Docker-OSX/osx-serial-generator/generate-unique-machine-values.sh \
+        ./PodMan-OSX/osx-serial-generator/generate-unique-machine-values.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --count 1 \
             --tsv ./serial.tsv \
@@ -374,7 +374,7 @@ CMD sudo touch /dev/kvm /dev/snd "${IMAGE_PATH}" "${BOOTDISK}" "${ENV}" 2>/dev/n
     || exit 1 ; } \
     ; [[ "${GENERATE_SPECIFIC}" == true ]] && { \
             source "${ENV:=/env}" 2>/dev/null \
-            ; ./Docker-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
+            ; ./PodMan-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --model "${DEVICE_MODEL}" \
             --serial "${SERIAL}" \
@@ -388,5 +388,5 @@ CMD sudo touch /dev/kvm /dev/snd "${IMAGE_PATH}" "${BOOTDISK}" "${ENV}" 2>/dev/n
     ; ./enable-ssh.sh && /bin/bash -c ./Launch.sh
 
 # virt-manager mode: eta son
-# CMD virsh define <(envsubst < Docker-OSX.xml) && virt-manager || virt-manager
+# CMD virsh define <(envsubst < PodMan-OSX.xml) && virt-manager || virt-manager
 # CMD virsh define <(envsubst < macOS-libvirt-Catalina.xml) && virt-manager || virt-manager

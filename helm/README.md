@@ -1,15 +1,15 @@
-# docker-osx
+# PodMan-osx
 
-Docker-OSX Helm Chart for Kubernetes.
+PodMan-OSX Helm Chart for Kubernetes.
 
-Project page: https://github.com/sickcodes/docker-osx
+Project page: https://github.com/bphd/PodMan-osx
 
 Available now on Artifact HUB
-[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/docker-osx)](https://artifacthub.io/packages/search?repo=docker-osx)
+[![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/PodMan-osx)](https://artifacthub.io/packages/search?repo=PodMan-osx)
 
 ## Information
 
-This installs `docker-osx` in Kubernetes.
+This installs `PodMan-osx` in Kubernetes.
 
 ## Features
 
@@ -37,20 +37,20 @@ This installs `docker-osx` in Kubernetes.
     * Ensure you are running QEMU 5.X
 * Kubernetes
 * Helm v2
-* `sickcodes/docker-osx-vnc` Docker image
+* `bphd/PodMan-osx-vnc` PodMan image
 
-### Build `sickcodes/docker-osx-vnc`
+### Build `bphd/PodMan-osx-vnc`
 
 1) Go back to the root directory
-1) Build docker image
+1) Build PodMan image
 
     ```
-    docker build \
-        -t sickcodes/docker-osx-vnc:latest \
-        -f helm/Dockerfile .
+    PodMan build \
+        -t bphd/PodMan-osx-vnc:latest \
+        -f helm/PodManfile .
     ```
 
-    _Please ensure you are using the Dockerfile in the `helm` folder_
+    _Please ensure you are using the PodManfile in the `helm` folder_
 
 _Do not worry about passing `CPU`, `RAM`, etc as they are handled in `values.yaml` now._
 

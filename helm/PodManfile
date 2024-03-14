@@ -1,8 +1,8 @@
-#!/usr/bin/docker
+#!/usr/bin/PodMan
 #
-# This Dockerfile is to be consumed with the docker_osx helm templates. It consumes the
+# This PodManfile is to be consumed with the PodMan_osx helm templates. It consumes the
 #  Ubuntu image so that OpenCore.qcow2 can be re-generated (which happens in Kube itself),
-#  not to mention that OSX-KVM was written for Ubuntu. This was not designed to be run in Docker
+#  not to mention that OSX-KVM was written for Ubuntu. This was not designed to be run in PodMan
 #  by itself.. very well anyway.
 #
 
@@ -12,9 +12,9 @@ SHELL ["/bin/bash", "-c"]
 
 # this has to match .Values.image.userName in helm template
 ARG USER=ubuntu
-# this installs the kvm linux kernel in the docker container so that OpenCore.qcow2 boot images
+# this installs the kvm linux kernel in the PodMan container so that OpenCore.qcow2 boot images
 #  can be built.
-ARG DOCKER_KERNEL_VERSION=linux-image-kvm
+ARG PodMan_KERNEL_VERSION=linux-image-kvm
 
 ENV TZ=America/Los_Angeles
 ARG DEBIAN_FRONTEND=noninteractive
@@ -26,7 +26,7 @@ RUN DEBCONF_FRONTEND=noninteractive apt update \
             git wget \
             libguestfs-tools \
             libvirt-daemon-system \
-            $DOCKER_KERNEL_VERSION \
+            $PodMan_KERNEL_VERSION \
             p7zip-full \
             qemu \
             sudo \

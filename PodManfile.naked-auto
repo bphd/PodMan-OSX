@@ -1,52 +1,30 @@
-#!/usr/bin/docker
-#     ____             __             ____  ______  __
-#    / __ \____  _____/ /_____  _____/ __ \/ ___/ |/ /
-#   / / / / __ \/ ___/ //_/ _ \/ ___/ / / /\__ \|   / 
-#  / /_/ / /_/ / /__/ ,< /  __/ /  / /_/ /___/ /   |  
-# /_____/\____/\___/_/|_|\___/_/   \____//____/_/|_|  :AUTO
+#!/usr/bin/PodMan
+#     ____            ____  ___            ____  ______  __
+#    / __ \____  ____/ /  |/  /___ _____  / __ \/ ___/ |/ /
+#   / /_/ / __ \/ __  / /|_/ / __ `/ __ \/ / / /\__ \|   / 
+#  / ____/ /_/ / /_/ / /  / / /_/ / / / / /_/ /___/ /   |  
+# /_/    \____/\__,_/_/  /_/\__,_/_/ /_/\____//____/_/|_|  :NAKED-AUTO
 # 
-# Title:            Docker-OSX (Mac on Docker)
-# Author:           Sick.Codes https://twitter.com/sickcodes
+# Title:            PodMan-OSX (Mac on PodMan)
+# Author:           bphd https://twitter.com/bphd
 # Version:          6.0
 # License:          GPLv3+
-# Repository:       https://github.com/sickcodes/Docker-OSX
-# Website:          https://sick.codes
+# Repository:       https://github.com/bphd/PodMan-OSX
+# Website:          https://bphd
 # 
-# This Dockerfile is a pre-installed naked installation of Docker-OSX!
+# This PodManfile needs you to supply a pre-installed installation of PodMan-OSX!
 # 
-#   Default username: user
-#   Default password: alpine
-# 
-# Take screenshots in the Arch container and display in terminal: scrotcat
-# readme: 
-# timezone: UTC/GMT
-# 
-# Future versions will navigate the installation process, inside the Dockerfile.
-# 
-#
-# Build:
-#
-#       docker build -t docker-osx:auto -f Dockerfile.auto .
-# 
-# Run:
-# 
-#       docker run -it --device /dev/kvm -p 50922:10022 -v ${PWD}/mac_hdd_ng_auto.img:/image     docker-osx-auto:latest
-# 
-# SSH:
-#       From inside the container:
-#           ssh -i ~/.ssh/id_docker_osx user@127.0.0.1 -p 10022
-# 
-#       From outside the container:
-#           ssh localhost user@127.0.0.1 -p 50922
-#           docker exec -it containerid ssh -i ~/.ssh/id_docker_osx user@127.0.0.1 -p 10022
+# Visit https://github.com/bphd/PodMan-OSX for info
 
-FROM sickcodes/docker-osx:latest
+FROM bphd/PodMan-osx:latest
 
-LABEL maintainer='https://twitter.com/sickcodes <https://sick.codes>'
+LABEL maintainer='https://twitter.com/bphd <https://bphd>'
 
 USER root
 
 WORKDIR /root
+
+RUN rm -f /home/arch/OSX-KVM/mac_hdd_ng.img
 
 # For taking screenshots of the Xfvb screen, useful during development.
 ARG SCROT
@@ -70,14 +48,11 @@ RUN pacman -Sy archlinux-keyring --noconfirm \
 
 RUN if [[ "${RANKMIRRORS}" ]]; then \
         { pacman -Sy wget --noconfirm || pacman -Syu wget --noconfirm ; } \
-        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/sickcodes/Docker-OSX/${BRANCH:=master}/rankmirrors" \
+        ; wget -O ./rankmirrors "https://raw.githubusercontent.com/bphd/PodMan-OSX/${BRANCH:=master}/rankmirrors" \
         ; wget -O- "https://www.archlinux.org/mirrorlist/?country=${MIRROR_COUNTRY:-US}&protocol=https&use_mirror_status=on" \
         | sed -e 's/^#Server/Server/' -e '/^#/d' \
         | head -n "$((${MIRROR_COUNT:-10}+1))" \
         | bash ./rankmirrors --verbose --max-time 5 - > /etc/pacman.d/mirrorlist \
-
-
-
         && cat /etc/pacman.d/mirrorlist \
     ; fi
 
@@ -86,7 +61,10 @@ RUN tee -a /etc/pacman.d/gnupg/gpg.conf <<< 'keyserver hkp://keyserver.ubuntu.co
     && tee -a /etc/pacman.d/gnupg/gpg.conf <<< 'keyserver hkp://pgp.mit.edu:11371' \
     && tee -a /etc/pacman.d/gnupg/gpg.conf <<< 'keyserver hkps://keys.openpgp.org' \
     && tee -a /etc/pacman.d/gnupg/gpg.conf <<< 'keyserver hkps://keys.mailvelope.com'
-    
+
+# For taking screenshots of the Xfvb screen, useful during development.
+ARG SCROT
+
 RUN pacman -Syu xorg-server-xvfb wget xterm xorg-xhost xorg-xrandr --noconfirm \
     && if [[ "${SCROT}" ]]; then \
         pacman -Syu scrot base-devel --noconfirm \
@@ -123,7 +101,7 @@ RUN mkdir -p ~/.ssh \
     && tee -a ~/.ssh/config <<< '    StrictHostKeyChecking no' \
     && tee -a ~/.ssh/config <<< '    UserKnownHostsFile=/dev/null'
 
-ARG COMPLETE=true
+ARG COMPLETE=
 
 # use the COMPLETE arg, for a complete image, ready to boot.
 # otherwise use your own image: -v "$PWD/disk.img":/image
@@ -131,15 +109,14 @@ ARG WGET_OPTIONS=
 # ARG WGET_OPTIONS='--no-verbose'
 
 # Feel free to take a copy of this image and then host it internally
-ARG IMAGE_URL='https://images.sick.codes/mac_hdd_ng_auto.img'
-# ARG IMAGE_URL='https://images.sick.codes/mac_hdd_ng_auto_big_sur.img'
+ARG IMAGE_URL=
+# ARG IMAGE_URL='https://images.bphd/mac_hdd_ng_auto_big_sur.img'
 
 RUN if [[ "${COMPLETE}" ]]; then \
-        echo "Downloading 20GB image... This step might take a while... Press Ctrl+C if you want to abort." \
+        echo "Downloading your image... This step might take a while... Press Ctrl+C if you want to abort." \
         ; rm -f /home/arch/OSX-KVM/mac_hdd_ng.img \
         && wget ${WGET_OPTIONS} -O /home/arch/OSX-KVM/mac_hdd_ng.img "${IMAGE_URL}" \
     ; fi
-
 
 ####
 
@@ -172,12 +149,12 @@ ENV GENERATE_UNIQUE=false
 # Boolean for generating a bootdisk with specific serials.
 ENV GENERATE_SPECIFIC=false
 
-ENV IMAGE_PATH=/home/arch/OSX-KVM/mac_hdd_ng.img
+ENV IMAGE_PATH=/image
 ENV IMAGE_FORMAT=qcow2
 
 ENV KVM='accel=kvm:tcg'
 
-# ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/sickcodes/osx-serial-generator/master/config-custom.plist"
+# ENV MASTER_PLIST_URL="https://raw.githubusercontent.com/bphd/osx-serial-generator/master/config-custom.plist"
 
 # ENV NETWORKING=e1000-82545em
 ENV NETWORKING=vmxnet3
@@ -204,7 +181,7 @@ ENV LIBGUESTFS_TRACE=1
 
 ENV TERMS_OF_USE=i_agree
 
-ENV BOILERPLATE="By using this Dockerfile, you hereby agree that you are a security reseacher or developer and agree to use this Dockerfile to make the world a safer place. Examples include: making your apps safer, finding your mobile phone, compiling security products, etc. You understand that Docker-OSX is an Open Source project, which is released to the public under the GNU Pulic License version 3 and above. You acknowledge that the Open Source project is absolutely unaffiliated with any third party, in any form whatsoever. Any trademarks or intelectual property which happen to be mentioned anywhere in or around the project are owned by their respective owners. By using this Dockerfile, you agree to agree to the EULA of each piece of upstream or downstream software. The following code is released for the sole purpose of security research, under the GNU Public License version 3. If you are concerned about the licensing, please note that this project is not AGPL. A copy of the license is available online: https://github.com/sickcodes/Docker-OSX/blob/master/LICENSE. In order to use the following Dockerfile you must read and understand the terms. Once you have read the terms, use the -e TERMS_OF_USE=i_agree or -e TERMS_OF_USE=i_disagree"
+ENV BOILERPLATE="By using this PodManfile, you hereby agree that you are a security reseacher or developer and agree to use this PodManfile to make the world a safer place. Examples include: making your apps safer, finding your mobile phone, compiling security products, etc. You understand that PodMan-OSX is an Open Source project, which is released to the public under the GNU Pulic License version 3 and above. You acknowledge that the Open Source project is absolutely unaffiliated with any third party, in any form whatsoever. Any trademarks or intelectual property which happen to be mentioned anywhere in or around the project are owned by their respective owners. By using this PodManfile, you agree to agree to the EULA of each piece of upstream or downstream software. The following code is released for the sole purpose of security research, under the GNU Public License version 3. If you are concerned about the licensing, please note that this project is not AGPL. A copy of the license is available online: https://github.com/bphd/PodMan-OSX/blob/master/LICENSE. In order to use the following PodManfile you must read and understand the terms. Once you have read the terms, use the -e TERMS_OF_USE=i_agree or -e TERMS_OF_USE=i_disagree"
 
 CMD echo "${BOILERPLATE}" \
     ; [[ "${TERMS_OF_USE}" = i_agree ]] || exit 1 \
@@ -217,7 +194,7 @@ CMD echo "${BOILERPLATE}" \
     ; } \
     || export BOOTDISK="${BOOTDISK:=/home/arch/OSX-KVM/OpenCore/OpenCore.qcow2}" \
     ; [[ "${GENERATE_UNIQUE}" == true ]] && { \
-        ./Docker-OSX/osx-serial-generator/generate-unique-machine-values.sh \
+        ./PodMan-OSX/osx-serial-generator/generate-unique-machine-values.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --count 1 \
             --tsv ./serial.tsv \
@@ -229,7 +206,7 @@ CMD echo "${BOILERPLATE}" \
     || exit 1 ; } \
     ; [[ "${GENERATE_SPECIFIC}" == true ]] && { \
             source "${ENV:=/env}" 2>/dev/null \
-            ; ./Docker-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
+            ; ./PodMan-OSX/osx-serial-generator/generate-specific-bootdisk.sh \
             --master-plist-url="${MASTER_PLIST_URL}" \
             --model "${DEVICE_MODEL}" \
             --serial "${SERIAL}" \
@@ -238,7 +215,7 @@ CMD echo "${BOILERPLATE}" \
             --mac-address "${MAC_ADDRESS}" \
             --width "${WIDTH:-1920}" \
             --height "${HEIGHT:-1080}" \
-            --output-bootdisk "${BOOTDISK:=/home/arch/OSX-KVM/OpenCore/OpenCore.qcow2}"  \
+            --output-bootdisk "${BOOTDISK:=/home/arch/OSX-KVM/OpenCore/OpenCore.qcow2}" \
     || exit 1 ; } \
     ; { [[ "${DISPLAY}" = ':99' ]] || [[ "${HEADLESS}" == true ]] ; } && { \
         nohup Xvfb :99 -screen 0 1920x1080x16 \
@@ -247,34 +224,22 @@ CMD echo "${BOILERPLATE}" \
     ; stat "${IMAGE_PATH}" \
     ; echo "Large image is being copied between layers, please wait a minute..." \
     ; ./enable-ssh.sh \
-    ; [[ -e ~/.ssh/id_docker_osx ]] || { \
-        /usr/bin/ssh-keygen -t rsa -f ~/.ssh/id_docker_osx -q -N "" \
-        && chmod 600 ~/.ssh/id_docker_osx \
+    ; [[ -e ~/.ssh/id_PodMan_osx ]] || { \
+        /usr/bin/ssh-keygen -t rsa -f ~/.ssh/id_PodMan_osx -q -N "" \
+        && chmod 600 ~/.ssh/id_PodMan_osx \
     ; } \
     ; /bin/bash -c ./Launch.sh \
-    & echo "Booting Docker-OSX in the background. Please wait..." \
-    ; until [[ "$(sshpass -p${PASSWORD:=alpine} ssh-copy-id -f -i ~/.ssh/id_docker_osx.pub -p 10022 ${USERNAME:=user}@127.0.0.1)" ]]; do \
+    & echo "Booting PodMan-OSX in the background. Please wait..." \
+    ; until [[ "$(sshpass -p${PASSWORD:=alpine} ssh-copy-id -f -i ~/.ssh/id_PodMan_osx.pub -p 10022 ${USERNAME:=user}@127.0.0.1)" ]]; do \
         echo "Disk is being copied between layers. Repeating until able to copy SSH key into OSX..." \
         ; sleep 1 \
     ; done \
-    ; grep id_docker_osx ~/.ssh/config || { \
+    ; grep id_PodMan_osx ~/.ssh/config || { \
         tee -a ~/.ssh/config <<< 'Host 127.0.0.1' \
         ; tee -a ~/.ssh/config <<< "    User ${USERNAME:=user}" \
         ; tee -a ~/.ssh/config <<< '    Port 10022' \
-        ; tee -a ~/.ssh/config <<< '    IdentityFile ~/.ssh/id_docker_osx' \
+        ; tee -a ~/.ssh/config <<< '    IdentityFile ~/.ssh/id_PodMan_osx' \
         ; tee -a ~/.ssh/config <<< '    StrictHostKeyChecking no' \
         ; tee -a ~/.ssh/config <<< '    UserKnownHostsFile=/dev/null' \
     ; } \
-    && echo 'Default username: user' \
-    && echo 'Default password: alpine' \
-    && echo 'Change it immediately using the command: passwd' \
-    && ssh -i ~/.ssh/id_docker_osx ${USERNAME:=user}@127.0.0.1 -p 10022 "${OSX_COMMANDS}"
-
-# username: user
-# password: alpine
-# screenshot: docker exec -it containerid scrotcat
-# readme: https://github.com/sickcodes/Docker-OSX
-# timezone: UTC/GMT
-
-# Future case option when supplying IMAGE_PATH:
-#   Zstandard*) zstd -d /image && export IMAGE_PATH=/image;; \
+    && ssh -i ~/.ssh/id_PodMan_osx ${USERNAME:=user}@127.0.0.1 -p 10022 "${OSX_COMMANDS}"

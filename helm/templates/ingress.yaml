@@ -1,13 +1,13 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "docker-osx.fullname" . -}}
+{{- $fullName := include "PodMan-osx.fullname" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app.kubernetes.io/name: {{ include "docker-osx.name" . }}
-    helm.sh/chart: {{ include "docker-osx.chart" . }}
+    app.kubernetes.io/name: {{ include "PodMan-osx.name" . }}
+    helm.sh/chart: {{ include "PodMan-osx.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   {{- with .Values.ingress.annotations }}

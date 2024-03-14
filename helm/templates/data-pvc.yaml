@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "docker-osx.fullname" . }}-config
+  name: {{ template "PodMan-osx.fullname" . }}-config
   labels:
-    app: {{ template "docker-osx.name" . }}
-    chart: {{ template "docker-osx.chart" . }}
+    app: {{ template "PodMan-osx.name" . }}
+    chart: {{ template "PodMan-osx.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
   {{- with .Values.persistence.annotations  }}
